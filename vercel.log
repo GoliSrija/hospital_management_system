@@ -1,33 +1,24 @@
 STDOUT
-https://frontend-ml8aggi5v-golisrijas-projects.vercel.app
+https://frontend-3xrsywmfe-golisrijas-projects.vercel.app
 
 STDERR
 Vercel CLI 59.1.3 (Node.js 22.14.0)
-
-  Directory       ~\OneDrive\Desktop\AISTool\backend\generated_projects\hospital_management_system\frontend
-
-Loading teamsâ€¦
-  Team            golisrijas-projects
-Searching for existing projectsâ€¦
-Searching for existing projectsâ€¦
-
-âœ“ Linked          golisrijas-projects/frontend
-
-Retrieving projectâ€¦
-> Downloading `development` environment variables for golisrijas-projects/frontend
-Downloading
-
-âœ“ Created         .env.local file and added it to .gitignore
-Deploying golisrijas-projects/frontend
-Uploading [--------------------] (0.0B/6.3KB)
-Uploading [========------------] (2.5KB/6.3KB)
-Uploading [====================] (6.3KB/6.3KB)
-  Inspect         https://vercel.com/golisrijas-projects/frontend/CqtCmKz5hyLJUWzi3K6HEWYJGHrU
-  Production      https://frontend-ml8aggi5v-golisrijas-projects.vercel.app
+Deploying frontend
+  Inspect         https://vercel.com/golisrijas-projects/frontend/HexssPEkZsiFymwkS2ika9NWMtRX
+  Production      https://frontend-3xrsywmfe-golisrijas-projects.vercel.app
 Buildingâ€¦
 Buildingâ€¦
-[2K[1A[2K[G  Production      https://frontend-ml8aggi5v-golisrijas-projects.vercel.app
+Running build in Washington, D.C., USA (East) â€“ iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Previous build caches not available.
+Downloading 10 deployment files...
+Running "vercel build"
+Vercel CLI 62.1.0
+Build Completed in /vercel/output [41ms]
+Deploying outputs...
+[2K[1A[2K[G  Production      https://frontend-3xrsywmfe-golisrijas-projects.vercel.app
 Completingâ€¦
 â–² Aliased         https://frontend-mu-dusky-fprlm339b7.vercel.app
 
-âœ“ Ready in 4s
+âœ“ Ready in 10s
