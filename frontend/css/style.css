@@ -1,4 +1,4 @@
-/* Reset some default browser styles */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,14 +12,27 @@ body {
     background-color: #f4f4f4;
 }
 
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 /* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #333;
-    color: #fff;
+    background-color: #007BFF;
+    color: white;
+}
+
+.navbar a {
+    color: white;
 }
 
 .navbar .logo {
@@ -27,62 +40,63 @@ body {
     font-weight: bold;
 }
 
-.navbar .links {
+.navbar ul {
+    list-style: none;
     display: flex;
-    gap: 1rem;
 }
 
-.navbar .links a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease;
+.navbar ul li {
+    margin-left: 1rem;
 }
 
-.navbar .links a:hover {
-    background-color: #555;
-    border-radius: 5px;
+.navbar ul li a {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #0056b3;
 }
 
 /* Hero Section */
 .hero {
-    background-image: url('hero-image.jpg');
+    background-image: url('hero-background.jpg');
     background-size: cover;
     background-position: center;
-    height: 60vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: white;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
 }
 
 .hero p {
     font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-/* Cards Section */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
+/* Cards */
 .card {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
+    background-color: white;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 2rem;
+    width: calc(33% - 4rem);
 }
 
 .card img {
     width: 100%;
     height: auto;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .card .content {
@@ -90,14 +104,7 @@ body {
 }
 
 .card .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.card .description {
-    font-size: 1rem;
-    color:
+    font-size:
 :root{--primary:#3157d5;--primary-dark:#2443ad;--bg:#f4f7fc;--text:#1c2740;--muted:#748099;--border:#e1e7f0}
 *{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
 header{padding:18px 24px;background:#fff;border-bottom:1px solid var(--border)}main,.container,.dashboard,.content{max-width:1240px;margin:28px auto;padding:24px}

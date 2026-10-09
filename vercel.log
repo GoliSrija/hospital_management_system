@@ -7,18 +7,18 @@ BUILD OUTPUT:
 DEPLOYMENT OUTPUT:
 Vercel CLI 59.1.3 (Node.js 22.14.0)
 Deploying frontend
-Uploading [--------------------] (0.0B/16.3KB)
-Uploading [============--------] (10.3KB/16.3KB)
-Uploading [=================---] (14.3KB/16.3KB)
-Uploading [====================] (16.3KB/16.3KB)
-  Inspect         https://vercel.com/golisrijas-projects/frontend/2kq4LJCHnpk8yNs6EmetCsLDgWtH
-  Production      https://frontend-o32eb8us4-golisrijas-projects.vercel.app
-https://frontend-o32eb8us4-golisrijas-projects.vercel.appBuildingâ€¦
+Uploading [--------------------] (0.0B/15.8KB)
+Uploading [=====---------------] (4.0KB/15.8KB)
+Uploading [====================] (15.8KB/15.8KB)
+  Inspect         https://vercel.com/golisrijas-projects/frontend/2gyjmnybQJ6pRGtU3vQRDscyZ3yA
+  Production      https://frontend-jb3qsu53p-golisrijas-projects.vercel.app
+https://frontend-jb3qsu53p-golisrijas-projects.vercel.appBuildingâ€¦
 Buildingâ€¦
 Running build in Washington, D.C., USA (East) â€“ iad1
 Build machine configuration: 2 cores, 8 GB
 Retrieving list of deployment files...
-[2K[1A[2K[G  Production      https://frontend-o32eb8us4-golisrijas-projects.vercel.app
+Previous build caches not available.
+[2K[1A[2K[G  Production      https://frontend-jb3qsu53p-golisrijas-projects.vercel.app
 Completingâ€¦
 â–² Aliased         https://frontend-mu-dusky-fprlm339b7.vercel.app
 

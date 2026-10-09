@@ -11,33 +11,27 @@
 <body>
     <div id="app">
         <header>
-            <div class="logo">HMS</div>
+            <div class="logo">Hospital Management System</div>
             <nav>
                 <ul>
                     <li><a href="#/dashboard" class="active">Dashboard</a></li>
                     <li><a href="#/patients">Patients</a></li>
                     <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medicalrecords">Medical Records</a></li>
-                    <li><a href="#/staff">Staff</a></li>
-                    <li><a href="#/inventory">Inventory</a></li>
+                    <li><a href="#/medicalRecords">Medical Records</a></li>
                     <li><a href="#/settings">Settings</a></li>
                 </ul>
             </nav>
-            <button id="logout">Logout</button>
         </header>
         <main>
-            <div id="sidebar">
-                <div class="menu-item" data-target="#dashboard">Dashboard</div>
-                <div class="menu-item" data-target="#patients">Patients</div>
-                <div class="menu-item" data-target="#appointments">Appointments</div>
-                <div class="menu-item" data-target="#medicalrecords">Medical Records</div>
-                <div class="menu-item" data-target="#staff">Staff</div>
-                <div class="menu-item" data-target="#inventory">Inventory</div>
-                <div class="menu-item" data-target="#settings">Settings</div>
-            </div>
-            <div id="content">
-                <!-- Content will be loaded here -->
-            </div>
+            <aside>
+                <ul>
+                    <li><a href="#/dashboard">Dashboard</a></li>
+                    <li><a href="#/patients">Patient Management</a></li>
+                    <li><a href="#/appointments">Appointment Scheduling</a></li>
+                    <li><a href="#/medicalRecords">Medical Records</a></li>
+                </ul>
+            </aside>
+            <section id="content"></section>
         </main>
     </div>
     

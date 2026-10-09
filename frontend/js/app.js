@@ -1,72 +1,89 @@
-Certainly! Below is a JavaScript snippet that includes form validation, button events, dynamic content, and loading indicators for a hospital management system. This example assumes you have a basic HTML structure to work with.
+Certainly! Below is a basic JavaScript implementation for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a simple HTML structure to interact with.
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Form Validation
     const form = document.getElementById('patientForm');
-    const loadingIndicator = document.getElementById('loadingIndicator');
-    const successMessage = document.getElementById('successMessage');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Clear previous error messages
+        clearErrors();
+        
+        // Validate first name
+        if (!validateField(form.firstName)) {
+            return;
+        }
+        
+        // Validate last name
+        if (!validateField(form.lastName)) {
+            return;
+        }
+        
+        // Validate email
+        if (!validateEmail(form.email)) {
+            return;
+        }
+        
+        // Validate phone number
+        if (!validatePhoneNumber(form.phone)) {
+            return;
+        }
+        
+        // If all fields are valid, submit the form
+        submitForm();
+    });
 
-    // Function to show loading indicator
-    function showLoading() {
+    // Button Events
+    const addPatientButton = document.getElementById('addPatientButton');
+    addPatientButton.addEventListener('click', function() {
+        // Show loading indicator
+        showLoadingIndicator();
+        
+        // Simulate async operation
+        setTimeout(function() {
+            // Hide loading indicator
+            hideLoadingIndicator();
+            
+            // Add patient to list (for demonstration purposes)
+            addPatientToList();
+        }, 2000);
+    });
+
+    // Dynamic Content
+    const patientList = document.getElementById('patientList');
+
+    // Function to add patient to list
+    function addPatientToList() {
+        const patientName = form.firstName.value + ' ' + form.lastName.value;
+        const patientItem = document.createElement('li');
+        patientItem.textContent = patientName;
+        patientList.appendChild(patientItem);
+    }
+
+    // Loading Indicators
+    const loadingIndicator = document.getElementById('loadingIndicator');
+
+    function showLoadingIndicator() {
         loadingIndicator.style.display = 'block';
     }
 
-    // Function to hide loading indicator
-    function hideLoading() {
+    function hideLoadingIndicator() {
         loadingIndicator.style.display = 'none';
     }
 
-    // Form Validation
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        let isValid = true;
-
-        // Validate fields
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const phoneInput = document.getElementById('phone');
-        const addressInput = document.getElementById('address');
-
-        if (!nameInput.value.trim()) {
-            alert('Name is required.');
-            isValid = false;
+    // Helper Functions
+    function validateField(field) {
+        if (field.value.trim() === '') {
+            showError(field, 'This field is required.');
+            return false;
         }
-
-        if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
-            alert('Valid email is required.');
-            isValid = false;
-        }
-
-        if (!phoneInput.value.trim() || !isValidPhone(phoneInput.value)) {
-            alert('Valid phone number is required.');
-            isValid = false;
-        }
-
-        if (!addressInput.value.trim()) {
-            alert('Address is required.');
-            isValid = false;
-        }
-
-        if (isValid) {
-            showLoading();
-            setTimeout(function() {
-                hideLoading();
-                successMessage.style.display = 'block';
-                form.reset();
-            }, 2000); // Simulate server response delay
-        }
-    });
-
-    // Email validation function
-    function isValidEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+        return true;
     }
 
-    // Phone validation function
-    function isValidPhone(phone) {
-        const
+    function validateEmail(emailField) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailField.value)) {
 
 (() => {
 "use strict";
