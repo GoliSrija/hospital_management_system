@@ -1,8 +1,30 @@
-STDOUT
+COMMAND:
+C:\Users\golis\AppData\Roaming\npm\vercel.CMD --prod --yes
 
+STDOUT:
+https://frontend-jw4t0ee7e-golisrijas-projects.vercel.app
 
-STDERR
+STDERR:
 Vercel CLI 59.1.3 (Node.js 22.14.0)
 Deploying frontend
-Error: Not authorized
-Contact Support: https://vercel.link/help
+Uploading [--------------------] (0.0B/18.3KB)
+Uploading [=======-------------] (6.8KB/18.3KB)
+Uploading [====================] (18.3KB/18.3KB)
+  Inspect         https://vercel.com/golisrijas-projects/frontend/78wkqUN4TRhf9jMbjBh6dn3VUZPy
+  Production      https://frontend-jw4t0ee7e-golisrijas-projects.vercel.app
+Buildingâ€¦
+Buildingâ€¦
+Running build in Washington, D.C., USA (East) â€“ iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Previous build caches not available.
+Downloading 12 deployment files...
+Running "vercel build"
+Vercel CLI 62.7.0
+Build Completed in /vercel/output [60ms]
+Deploying outputs...
+[2K[1A[2K[G  Production      https://frontend-jw4t0ee7e-golisrijas-projects.vercel.app
+Completingâ€¦
+â–² Aliased         https://frontend-mu-dusky-fprlm339b7.vercel.app
+
+âœ“ Ready in 9s
