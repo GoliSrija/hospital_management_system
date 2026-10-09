@@ -1,18 +1,8 @@
 STDOUT
-https://frontend-dpl9oe13q-golisrijas-projects.vercel.app
+
 
 STDERR
 Vercel CLI 59.1.3 (Node.js 22.14.0)
 Deploying frontend
-Uploading [--------------------] (0.0B/3.6KB)
-Uploading [==========----------] (1.9KB/3.6KB)
-Uploading [====================] (3.6KB/3.6KB)
-  Inspect         https://vercel.com/golisrijas-projects/frontend/GGjRjwd52uxP2arKNgbwVWiWWNRe
-  Production      https://frontend-dpl9oe13q-golisrijas-projects.vercel.app
-Buildingâ€¦
-Buildingâ€¦
-[2K[1A[2K[G  Production      https://frontend-dpl9oe13q-golisrijas-projects.vercel.app
-Completingâ€¦
-â–² Aliased         https://frontend-mu-dusky-fprlm339b7.vercel.app
-
-âœ“ Ready in 7s
+Error: Not authorized
+Contact Support: https://vercel.link/help

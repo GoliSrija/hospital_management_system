@@ -1,31 +1,13 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Dashboard</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<h1>hospital_management_system Dashboard</h1>
-
-<p>Welcome to your dashboard.</p>
-
-<a href="index.html">Home</a>
-
-<br><br>
-
-<a href="products.html">Products</a>
-
-<br>
-
-<a href="orders.html">Orders</a>
-
-<br>
-
-<a href="profile.html">Profile</a>
-
-<script src="js/app.js"></script>
-
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dashboard | Hospital Management System</title><link rel="stylesheet" href="css/style.css"></head>
+<body class="app-dashboard"><header class="dashboard-header"><div><h1>Hospital Management System</h1><p class="dashboard-intro">Your project workspace</p></div><button type="button" data-logout>Log out</button></header>
+<main><div class="dashboard-header"><div><h2>Dashboard</h2><p class="dashboard-intro">Welcome back, <strong id="dashboard-user">user</strong>.</p></div><input id="module-search" type="search" placeholder="Search modules..." aria-label="Search modules" style="max-width:300px"></div>
+<section class="summary-grid"><div class="summary-card"><span>Available modules</span><strong>7</strong></div><div class="summary-card"><span>Records</span><strong>Demo</strong></div><div class="summary-card"><span>Workspace status</span><strong>Ready</strong></div></section>
+<section><h2>Application modules</h2><p class="dashboard-intro">Choose a module to search, add, and delete demo records.</p><div class="module-grid" id="dashboard-modules"><a class="module-card" href="#/patients"><span class="module-icon">01</span><span><strong>Patients</strong><small>Register and manage patient records</small></span></a>
+<a class="module-card" href="#/doctors"><span class="module-icon">02</span><span><strong>Doctors</strong><small>Manage doctor details and availability</small></span></a>
+<a class="module-card" href="#/appointments"><span class="module-icon">03</span><span><strong>Appointments</strong><small>Schedule and track appointments</small></span></a>
+<a class="module-card" href="#/medical-records"><span class="module-icon">04</span><span><strong>Medical Records</strong><small>Maintain medical record entries</small></span></a>
+<a class="module-card" href="#/staff"><span class="module-icon">05</span><span><strong>Staff</strong><small>Manage hospital staff</small></span></a>
+<a class="module-card" href="#/departments"><span class="module-icon">06</span><span><strong>Departments</strong><small>Organize hospital departments</small></span></a>
+<a class="module-card" href="#/reports"><span class="module-icon">07</span><span><strong>Reports</strong><small>Review hospital activity</small></span></a></div></section>
+<p class="notice">Module CRUD is a browser-local demo. Connect backend endpoints and database tables for persistent data.</p></main>
+<script src="js/config.js" defer></script><script src="js/app.js" defer></script></body></html>

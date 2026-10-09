@@ -1,94 +1,18 @@
-Certainly! Below is a complete set of CSS for a responsive hospital management system with a modern UI. This includes a Navbar, Hero section, Cards, Forms, Tables, and Footer.
-
-
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Navbar */
-.navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-}
-
-.navbar li {
-    margin-left: 20px;
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #f39c12;
-}
-
-/* Hero Section */
-.hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.hero h1 {
-    font-size: 3em;
-    margin: 0;
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.hero .btn {
-    background-color: #f39c12;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
-
-.hero .btn:hover {
-    background-color: #e67e22;
-}
-
-/* Cards */
-.card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-bottom: 20
+{'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 500 tokens, but can only afford 220. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GuDjRfJelyABzWUqPuFJNVtYVq'}
+:root{--primary:#3157d5;--primary-dark:#2443ad;--bg:#f4f7fc;--text:#1c2740;--muted:#748099;--border:#e1e7f0}
+*{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
+header{padding:18px 24px;background:#fff;border-bottom:1px solid var(--border)}main,.container,.dashboard,.content{max-width:1240px;margin:28px auto;padding:24px}
+a{color:var(--primary)}button,.button,input[type=submit]{border:0;border-radius:9px;padding:10px 16px;background:var(--primary);color:#fff;font:inherit;cursor:pointer}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:8px;font:inherit;background:#fff}
+form{display:grid;gap:12px}article,.card,section{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:0 5px 20px #192d550b}
+.auth-card{max-width:460px;margin:7vh auto}.auth-links{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.dashboard-header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.dashboard-intro,.notice{color:var(--muted)}
+.module-grid,.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:20px 0}
+.module-card{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}
+.module-card strong,.module-card small{display:block}.module-card small{color:var(--muted);margin-top:4px}.module-icon{font-weight:800;color:var(--primary)}
+.summary-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}.summary-card strong{display:block;font-size:26px}
+#dynamic-page-view{max-width:1240px;margin:28px auto;padding:24px;background:#fff;border:1px solid var(--border);border-radius:14px}
+#dynamic-page-view .module-toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:12px;border-bottom:1px solid var(--border);text-align:left}
+[hidden]{display:none!important}.status-message{padding:10px;border-radius:8px;background:#edf2fc}.status-error{background:#fff0f0;color:#9d1c1c}
+@media(max-width:700px){main,.container,.dashboard,.content,#dynamic-page-view{padding:16px;margin:12px auto}table{display:block;overflow-x:auto}}
