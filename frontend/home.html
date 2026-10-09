@@ -11,23 +11,34 @@
 <body>
     <div id="app">
         <header>
-            <nav class="navbar">
-                <a href="#/dashboard" class="logo">Hospital Management System</a>
-                <ul class="nav-links">
+            <div class="logo">HMS</div>
+            <nav>
+                <ul>
                     <li><a href="#/dashboard" class="active">Dashboard</a></li>
                     <li><a href="#/patients">Patients</a></li>
                     <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medical-records">Medical Records</a></li>
+                    <li><a href="#/medicalrecords">Medical Records</a></li>
+                    <li><a href="#/staff">Staff</a></li>
+                    <li><a href="#/inventory">Inventory</a></li>
                     <li><a href="#/settings">Settings</a></li>
-                    <li><a href="#/logout">Logout</a></li>
                 </ul>
             </nav>
+            <button id="logout">Logout</button>
         </header>
-        <div class="container">
-            <main>
-                <div id="content"></div>
-            </main>
-        </div>
+        <main>
+            <div id="sidebar">
+                <div class="menu-item" data-target="#dashboard">Dashboard</div>
+                <div class="menu-item" data-target="#patients">Patients</div>
+                <div class="menu-item" data-target="#appointments">Appointments</div>
+                <div class="menu-item" data-target="#medicalrecords">Medical Records</div>
+                <div class="menu-item" data-target="#staff">Staff</div>
+                <div class="menu-item" data-target="#inventory">Inventory</div>
+                <div class="menu-item" data-target="#settings">Settings</div>
+            </div>
+            <div id="content">
+                <!-- Content will be loaded here -->
+            </div>
+        </main>
     </div>
     
 
@@ -35,26 +46,3 @@
 <script src="js/app.js" defer></script>
 </body>
 </html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Management System - Dashboard</title>
-    
-</head>
-<body>
-    <div id="app">
-        <header>
-            <nav class="navbar">
-                <a href="#/dashboard" class="logo">Hospital Management System</a>
-                <ul class="nav-links">
-                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                    <li><a href="#/patients">Patients</a></li>
-                    <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medical-records">Medical Records</a></li>
-                    <li><a href="#/settings">Settings</a></li>
-                    <li><a href="#/logout">Logout</a></

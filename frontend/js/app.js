@@ -1,74 +1,72 @@
-Certainly! Below is a simplified example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a JavaScript snippet that includes form validation, button events, dynamic content, and loading indicators for a hospital management system. This example assumes you have a basic HTML structure to work with.
 
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('patientForm');
-    const patientNameInput = document.getElementById('patientName');
-    const patientAgeInput = document.getElementById('patientAge');
-    const patientGenderSelect = document.getElementById('patientGender');
-    const submitButton = document.getElementById('submitButton');
-    const patientList = document.getElementById('patientList');
     const loadingIndicator = document.getElementById('loadingIndicator');
+    const successMessage = document.getElementById('successMessage');
 
-    // Form Validation Function
-    function validateForm() {
-        let isValid = true;
-
-        if (!patientNameInput.value) {
-            alert('Patient name is required.');
-            isValid = false;
-        }
-
-        if (!patientAgeInput.value || isNaN(patientAgeInput.value) || patientAgeInput.value <= 0) {
-            alert('Patient age must be a positive number.');
-            isValid = false;
-        }
-
-        return isValid;
+    // Function to show loading indicator
+    function showLoading() {
+        loadingIndicator.style.display = 'block';
     }
 
-    // Button Event for Submitting the Form
-    submitButton.addEventListener('click', function(event) {
+    // Function to hide loading indicator
+    function hideLoading() {
+        loadingIndicator.style.display = 'none';
+    }
+
+    // Form Validation
+    form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        if (validateForm()) {
-            const patientData = {
-                name: patientNameInput.value,
-                age: parseInt(patientAgeInput.value),
-                gender: patientGenderSelect.value
-            };
+        let isValid = true;
 
-            // Simulate API call with setTimeout for demonstration purposes
-            loadingIndicator.style.display = 'block';
+        // Validate fields
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const addressInput = document.getElementById('address');
+
+        if (!nameInput.value.trim()) {
+            alert('Name is required.');
+            isValid = false;
+        }
+
+        if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
+            alert('Valid email is required.');
+            isValid = false;
+        }
+
+        if (!phoneInput.value.trim() || !isValidPhone(phoneInput.value)) {
+            alert('Valid phone number is required.');
+            isValid = false;
+        }
+
+        if (!addressInput.value.trim()) {
+            alert('Address is required.');
+            isValid = false;
+        }
+
+        if (isValid) {
+            showLoading();
             setTimeout(function() {
-                addPatientToList(patientData);
-                clearForm();
-                loadingIndicator.style.display = 'none';
-            }, 1000); // Simulated delay
+                hideLoading();
+                successMessage.style.display = 'block';
+                form.reset();
+            }, 2000); // Simulate server response delay
         }
     });
 
-    // Function to Add Patient Data to the List
-    function addPatientToList(patientData) {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${patientData.name} (${patientData.age}, ${patientData.gender})`;
-        patientList.appendChild(listItem);
+    // Email validation function
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
 
-    // Function to Clear the Form
-    function clearForm() {
-        patientNameInput.value = '';
-        patientAgeInput.value = '';
-        patientGenderSelect.selectedIndex = 0; // Reset select to default
-    }
-
-    // Dynamic Content - Example: Populate Gender Options
-    const genderOptions = ['Male', 'Female', 'Other'];
-    genderOptions.forEach(gender => {
-        const option = document.createElement('option');
-        option.value = gender.toLowerCase();
-        option.textContent = gender;
-        patient
+    // Phone validation function
+    function isValidPhone(phone) {
+        const
 
 (() => {
 "use strict";
