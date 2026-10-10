@@ -1,70 +1,66 @@
-Certainly! Below is a simplified JavaScript snippet for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators using modern JavaScript features like async/await and fetch API.
+Certainly! Below is a JavaScript snippet that addresses the requirements for a hospital management system form validation, button events, dynamic content, and loading indicators. This example assumes you have a basic HTML structure in place.
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    // Form Validation
     const form = document.getElementById('patientForm');
-    const nameInput = document.getElementById('patientName');
-    const ageInput = document.getElementById('patientAge');
-    const submitButton = document.getElementById('submitPatient');
-    const contentArea = document.getElementById('contentArea');
-    const loadingIndicator = document.getElementById('loadingIndicator');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
 
-    // Form Validation Function
-    function validateForm() {
-        let isValid = true;
-        if (!nameInput.value.trim()) {
-            alert('Please enter the patient\'s name.');
-            isValid = false;
-        }
-        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value < 0) {
-            alert('Please enter a valid age.');
-            isValid = false;
-        }
-        return isValid;
-    }
-
-    // Button Event Handler
-    submitButton.addEventListener('click', async (event) => {
+    form.addEventListener('submit', function(event) {
         event.preventDefault();
         
-        if (validateForm()) {
-            loadingIndicator.style.display = 'block';
-            contentArea.innerHTML = ''; // Clear previous content
-
-            try {
-                const response = await fetch('/api/patients', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name: nameInput.value,
-                        age: ageInput.value
-                    })
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    contentArea.innerHTML = `<p>Patient ${data.patient.name} added successfully.</p>`;
-                } else {
-                    const error = await response.text();
-                    contentArea.innerHTML = `<p>Error: ${error}</p>`;
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                contentArea.innerHTML = `<p>Error: ${error.message}</p>`;
-            } finally {
-                loadingIndicator.style.display = 'none';
-            }
+        if (!validateName(nameInput)) {
+            alert('Please enter a valid name.');
+            return;
         }
+        if (!validateAge(ageInput)) {
+            alert('Please enter a valid age.');
+            return;
+        }
+        if (!validateEmail(emailInput)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+        if (!validatePhone(phoneInput)) {
+            alert('Please enter a valid phone number.');
+            return;
+        }
+
+        // If all validations pass, submit the form
+        form.submit();
     });
-});
 
+    // Button Events
+    const loadButton = document.getElementById('loadData');
+    loadButton.addEventListener('click', function() {
+        showLoadingIndicator();
+        setTimeout(function() {
+            hideLoadingIndicator();
+            // Simulate fetching data from server
+            const patients = [
+                { id: 1, name: 'John Doe', age: 30, email: 'john@example.com', phone: '123-456-7890' },
+                { id: 2, name: 'Jane Smith', age: 25, email: 'jane@example.com', phone: '098-765-4321' }
+            ];
+            displayPatients(patients);
+        }, 2000);
+    });
 
-### Explanation:
-1. **Form Validation**: The `validateForm` function checks if the name and age fields are filled correctly.
-2. **Button Event**: The `submitButton` click event is handled to prevent the default form submission and then sends a POST request to the server with the patient's details.
-3. **Dynamic Content**: The
+    // Dynamic Content
+    function displayPatients(patients) {
+        const patientList = document.getElementById('patientList');
+        patientList.innerHTML = ''; // Clear previous content
+
+        patients.forEach(patient => {
+            const patientItem = document.createElement('div');
+            patientItem.className = 'patient-item';
+            patientItem.innerHTML = `
+                <p>ID: ${patient.id}</p>
+                <p>Name: ${patient.name}</p>
+                <p>Age: ${patient.age}</p>
+                <p>Email: ${patient
 
 (() => {
 "use strict";
