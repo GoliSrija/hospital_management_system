@@ -9,25 +9,40 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="app-container">
+    <div id="app">
         <header>
-            <div class="logo">Hospital Management System</div>
+            <div class="logo">HMS</div>
             <nav>
-                <ul id="nav-links">
+                <ul>
                     <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                    <li><a href="#/patients">Patient Management</a></li>
-                    <li><a href="#/appointments">Appointment Scheduling</a></li>
-                    <li><a href="#/staff">Staff Management</a></li>
-                    <li><a href="#/inventory">Inventory Management</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/medicalrecords">Medical Records</a></li>
+                    <li><a href="#/staff">Staff</a></li>
+                    <li><a href="#/resources">Resources</a></li>
+                    <li><a href="#/reports">Reports</a></li>
+                    <li><a href="#/logout">Logout</a></li>
                 </ul>
             </nav>
         </header>
-        <main>
-            <div id="content"></div>
-        </main>
-        <footer>
-            <p>&copy; 2023 Hospital Management System</p>
-        </footer>
+        <div class="container">
+            <aside>
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="#/dashboard">Dashboard</a></li>
+                        <li><a href="#/patients">Patients</a></li>
+                        <li><a href="#/appointments">Appointments</a></li>
+                        <li><a href="#/medicalrecords">Medical Records</a></li>
+                        <li><a href="#/staff">Staff</a></li>
+                        <li><a href="#/resources">Resources</a></li>
+                        <li><a href="#/reports">Reports</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main>
+                <div id="content"></div>
+            </main>
+        </div>
     </div>
     
 
@@ -35,60 +50,3 @@
 <script src="js/app.js" defer></script>
 </body>
 </html>
-
-<!-- style.css -->
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-}
-
-.app-container {
-    display: flex;
-    height: 100vh;
-}
-
-header {
-    background-color: #007BFF;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 1rem;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-nav ul li a.active {
-    border-bottom: 2px solid white;
-}
-
-main {
-    flex: 1;
-    padding: 1rem;
-}
-
-footer {
-    background-color:
