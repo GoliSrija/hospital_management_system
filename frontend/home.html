@@ -10,24 +10,45 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar">
-            <div class="logo">HMS</div>
-            <ul class="nav-links">
-                <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                <li><a href="#/patients">Patients</a></li>
-                <li><a href="#/appointments">Appointments</a></li>
-                <li><a href="#/emr">EMR</a></li>
-                <li><a href="#/inventory">Inventory</a></li>
-                <li><a href="#/logout">Logout</a></li>
-            </ul>
-        </nav>
-        <div class="content">
-            <main>
-                <router-view></router-view>
-            </main>
-        </div>
-    </div>
-    
+        <header>
+            <nav class="navbar">
+                <a href="#/dashboard" class="logo">Hospital MS</a>
+                <button class="nav-toggle">☰</button>
+                <ul class="nav-links">
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/medical-record">Medical Record</a></li>
+                    <li><a href="#/billing">Billing & Payment</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#/dashboard">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/medical-record">Medical Record</a></li>
+                    <li><a href="#/billing">Billing & Payment</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                </ul>
+            </aside>
+            <section id="content">
+                <h1>Welcome to Hospital Management System</h1>
+                <p>Manage your hospital operations seamlessly with our comprehensive system.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h2>Patient Records</h2>
+                        <p>View and manage patient records.</p>
+                        <button class="action-button">View Records</button>
+                    </div>
+                    <div class="card">
+                        <h2>Appointments</h2>
+                        <p>Schedule and manage appointments.</p>
+                        <button class="action-button">Schedule Appointment</button>
+                    </div
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>

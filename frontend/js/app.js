@@ -1,14 +1,13 @@
-Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content, and loading indicators.
+Certainly! Below is a basic JavaScript implementation for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a simple HTML structure to interact with.
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('patientForm');
     const nameInput = document.getElementById('name');
     const ageInput = document.getElementById('age');
-    const symptomsInput = document.getElementById('symptoms');
     const submitButton = document.getElementById('submitBtn');
-    const loadingIndicator = document.getElementById('loadingIndicator');
-    const responseContainer = document.getElementById('responseContainer');
+    const resultDiv = document.getElementById('result');
+    const loadingIndicator = document.getElementById('loading');
 
     // Function to show loading indicator
     function showLoading() {
@@ -20,67 +19,58 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingIndicator.style.display = 'none';
     }
 
-    // Form validation
+    // Form validation function
     function validateForm() {
         let isValid = true;
 
         if (!nameInput.value) {
-            alert('Name is required!');
+            alert('Please enter your name.');
             isValid = false;
-        }
-
-        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value <= 0) {
-            alert('Age must be a positive number!');
-            isValid = false;
-        }
-
-        if (!symptomsInput.value) {
-            alert('Symptoms are required!');
+        } else if (!ageInput.value || isNaN(ageInput.value) || ageInput.value <= 0) {
+            alert('Please enter a valid age.');
             isValid = false;
         }
 
         return isValid;
     }
 
-    // Button event handler
-    submitButton.addEventListener('click', (event) => {
-        event.preventDefault();
+    // Submit button event handler
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default form submission
 
         if (validateForm()) {
             showLoading();
             // Simulate an AJAX request
-            setTimeout(() => {
+            setTimeout(function() {
                 hideLoading();
-                responseContainer.innerHTML = '<p>Form submitted successfully!</p>';
-            }, 2000);
+                resultDiv.innerHTML = `
+                    <p>Name: ${nameInput.value}</p>
+                    <p>Age: ${ageInput.value}</p>
+                    <button id="viewDetails">View Details</button>
+                `;
+                const viewDetailsButton = document.getElementById('viewDetails');
+                viewDetailsButton.addEventListener('click', function() {
+                    alert(`You clicked on the view details button for ${nameInput.value} (${ageInput.value})`);
+                });
+            }, 2000); // Simulate delay
         }
     });
-
-    // Dynamic content example
-    const patientList = [
-        { name: 'John Doe', age: 35, symptoms: 'Fever' },
-        { name: 'Jane Smith', age: 42, symptoms: 'Cough' }
-    ];
-
-    function populatePatientList() {
-        let html = '';
-        patientList.forEach(patient => {
-            html += `<div class="patient">
-                        <h3>${patient.name}</h3>
-                        <p>Age: ${patient.age}</p>
-                        <p>Symptoms: ${patient.symptoms}</p>
-                      </div>`;
-        });
-        document.getElementById('patientList').innerHTML = html;
-    }
-
-    populatePatientList();
 });
 
 
-### HTML Structure Example
+### HTML Structure Example:
 
-Here
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+</head>
+<body>
+    <form id="patientForm">
+        <label for="name">Name:</label>
 
 (() => {
 "use strict";
