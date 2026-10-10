@@ -11,43 +11,66 @@
 <body>
     <div id="app">
         <nav class="navbar">
-            <div class="logo">Hospital Mgmt</div>
+            <div class="logo">Hospital Management System</div>
             <ul class="nav-links">
-                <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                <li><a href="#/patients">Patients</a></li>
-                <li><a href="#/appointments">Appointments</a></li>
-                <li><a href="#/medicalrecords">Medical Records</a></li>
-                <li><a href="#/billing">Billing</a></li>
-                <li><a href="#/settings">Settings</a></li>
-                <li><a href="#/logout">Logout</a></li>
+                <li><a href="#/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#/patients" class="nav-link">Patients</a></li>
+                <li><a href="#/appointments" class="nav-link">Appointments</a></li>
+                <li><a href="#/records" class="nav-link">Medical Records</a></li>
+                <li><a href="#/staff" class="nav-link">Staff Scheduling</a></li>
+                <li><a href="#/login" class="nav-link">Login</a></li>
             </ul>
         </nav>
-        <div class="container">
-            <div id="sidebar">
-                <div class="sidebar-header">
-                    <h2>Menu</h2>
-                </div>
-                <ul class="sidebar-links">
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patients">Patients</a></li>
-                    <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medicalrecords">Medical Records</a></li>
-                    <li><a href="#/billing">Billing</a></li>
-                    <li><a href="#/settings">Settings</a></li>
-                </ul>
-            </div>
-            <div id="main-content">
-                <div id="content">
-                    <h1>Welcome to Hospital Management System</h1>
-                    <p>This is the dashboard.</p>
-                    <div class="card">
-                        <h3>Patient Count: <span id="patient-count">0</span></h3>
-                        <button onclick="window.location.href='#/patients'">View Patients</button>
-                    </div>
-                    <div class="card">
-                        <h3>Appointment Count: <span id="appointment-count">0</span></
+        <main>
+            <div id="content"></div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Hospital Management System</p>
+        </footer>
+    </div>
+    
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #007BFF;
+    color: white;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: rgba(0, 123, 255, 0.5);
+}
+
+#content {
+    margin: 2rem;
+}
+
+.card {
+    border: 1px solid #6c757d;
+    border-radius: 8px;

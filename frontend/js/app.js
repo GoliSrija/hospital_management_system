@@ -1,75 +1,77 @@
-Certainly! Below is a simplified example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a simplified JavaScript code snippet that covers form validation, button events, dynamic content, and loading indicators for a hospital management system. This example assumes you have a basic HTML structure in place.
 
 
 document.addEventListener('DOMContentLoaded', function() {
     // Form Validation
     const form = document.getElementById('patientForm');
-    const patientName = document.getElementById('patientName');
-    const patientAge = document.getElementById('patientAge');
-    const patientEmail = document.getElementById('patientEmail');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const genderSelect = document.getElementById('gender');
+    const emailInput = document.getElementById('email');
+    const submitButton = document.getElementById('submit');
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent form submission
 
-        if (!validateForm()) {
-            return;
-        }
-
-        // Simulate AJAX request with a delay to show loading indicator
-        showLoadingIndicator();
-        setTimeout(function() {
-            hideLoadingIndicator();
-            alert('Patient information saved successfully!');
-        }, 2000);
-    });
-
-    function validateForm() {
         let isValid = true;
 
-        if (patientName.value.trim() === '') {
-            alert('Patient name is required.');
+        if (!nameInput.value) {
+            alert('Name is required.');
             isValid = false;
         }
 
-        if (isNaN(patientAge.value) || patientAge.value <= 0) {
-            alert('Patient age must be a positive number.');
+        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value <= 0) {
+            alert('Age must be a positive number.');
             isValid = false;
         }
 
-        if (!isValidEmail(patientEmail.value)) {
-            alert('Invalid email address.');
+        if (!genderSelect.value) {
+            alert('Gender is required.');
             isValid = false;
         }
 
-        return isValid;
-    }
+        if (!emailInput.value) {
+            alert('Email is required.');
+            isValid = false;
+        } else if (!isValidEmail(emailInput.value)) {
+            alert('Invalid email format.');
+            isValid = false;
+        }
 
+        if (isValid) {
+            showLoadingIndicator();
+            setTimeout(() => {
+                hideLoadingIndicator();
+                alert('Patient data submitted successfully!');
+                // Here you would typically send the form data to a server or perform other actions
+            }, 2000); // Simulate server response time
+        }
+    });
+
+    // Function to check if email is valid
     function isValidEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
 
     // Button Events
-    const appointmentButton = document.getElementById('makeAppointment');
-    appointmentButton.addEventListener('click', function() {
-        showLoadingIndicator();
-        setTimeout(function() {
-            hideLoadingIndicator();
-            alert('Appointment scheduled successfully!');
-        }, 2000);
+    const clearButton = document.getElementById('clear');
+    clearButton.addEventListener('click', function() {
+        form.reset();
+        hideLoadingIndicator();
     });
 
-    function showLoadingIndicator() {
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        loadingIndicator.style.display = 'block';
-    }
-
-    function hideLoadingIndicator() {
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        loadingIndicator.style.display = 'none';
-    }
-
     // Dynamic Content
+    const patientList = document.getElementById('patientList');
+
+    function addPatientToList(name, age, gender, email) {
+        const li = document.createElement('li');
+        li.textContent = `Name: ${name}, Age: ${age}, Gender: ${gender}, Email: ${email}`;
+        patientList.appendChild(li);
+    }
+
+    // Loading Indicators
+    const loadingIndicator
 
 (() => {
 "use strict";
