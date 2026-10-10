@@ -9,23 +9,39 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="app-container">
+    <div id="app">
         <header>
-            <div class="logo">Hospital Management System</div>
+            <div class="logo">HMS</div>
             <nav>
                 <ul class="nav-list">
-                    <li><a href="#/dashboard" class="nav-item active">Dashboard</a></li>
+                    <li><a href="#/dashboard" class="nav-item">Dashboard</a></li>
                     <li><a href="#/patients" class="nav-item">Patients</a></li>
                     <li><a href="#/appointments" class="nav-item">Appointments</a></li>
                     <li><a href="#/medicalrecords" class="nav-item">Medical Records</a></li>
-                    <li><a href="#/stafftasks" class="nav-item">Staff Tasks</a></li>
-                    <li><a href="#/logout" class="nav-item">Logout</a></li>
+                    <li><a href="#/staff" class="nav-item">Staff</a></li>
+                    <li><a href="#/settings" class="nav-item">Settings</a></li>
                 </ul>
             </nav>
         </header>
-        <main>
-            <div id="content"></div>
-        </main>
+        <div class="main-content">
+            <aside class="sidebar">
+                <button id="toggle-sidebar">Menu</button>
+                <ul class="sidebar-list">
+                    <li><a href="#/dashboard">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/medicalrecords">Medical Records</a></li>
+                    <li><a href="#/staff">Staff</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                </ul>
+            </aside>
+            <div class="content">
+                <div id="content"></div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2023 Hospital Management System</p>
+        </footer>
     </div>
     
 
@@ -33,57 +49,3 @@
 <script src="js/app.js" defer></script>
 </body>
 </html>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    color: #343a40;
-}
-
-.app-container {
-    display: flex;
-    height: 100vh;
-}
-
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-list {
-    list-style: none;
-}
-
-.nav-item {
-    margin-left: 1rem;
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-}
-
-.nav-item:hover {
-    text-decoration: underline;
-}
-
-.active {
-    color: #28a745;
-}
-
-main {
-    flex: 1;

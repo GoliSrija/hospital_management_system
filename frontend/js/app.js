@@ -1,62 +1,72 @@
-Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a basic HTML structure in place.
+Certainly! Below is a JavaScript snippet that includes form validation, button events, dynamic content updates, and loading indicators for a simple hospital management system. This example assumes you have a basic HTML structure in place.
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('patientForm');
     const patientNameInput = document.getElementById('patientName');
     const patientAgeInput = document.getElementById('patientAge');
-    const patientGenderInput = document.getElementById('patientGender');
+    const patientEmailInput = document.getElementById('patientEmail');
+    const appointmentDateInput = document.getElementById('appointmentDate');
+    const appointmentTimeInput = document.getElementById('appointmentTime');
     const submitButton = document.getElementById('submitButton');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
     const loadingIndicator = document.getElementById('loadingIndicator');
-    const resultContainer = document.getElementById('resultContainer');
 
     // Function to validate the form
     function validateForm() {
         let isValid = true;
+        const name = patientNameInput.value.trim();
+        const age = patientAgeInput.value.trim();
+        const email = patientEmailInput.value.trim();
+        const date = appointmentDateInput.value.trim();
+        const time = appointmentTimeInput.value.trim();
 
-        if (!patientNameInput.value) {
-            alert('Patient name is required.');
+        if (!name || name.length < 3) {
+            errorMessage.textContent = 'Please enter a valid name.';
             isValid = false;
-        } else if (!patientAgeInput.value || isNaN(patientAgeInput.value) || patientAgeInput.value < 0) {
-            alert('Patient age must be a positive number.');
+        } else {
+            errorMessage.textContent = '';
+        }
+
+        if (!age || isNaN(age) || parseInt(age) < 0) {
+            errorMessage.textContent = 'Please enter a valid age.';
             isValid = false;
-        } else if (!patientGenderInput.value) {
-            alert('Patient gender is required.');
+        } else {
+            errorMessage.textContent = '';
+        }
+
+        if (!email || !/\S+@\S+\.\S+/.test(email)) {
+            errorMessage.textContent = 'Please enter a valid email address.';
             isValid = false;
+        } else {
+            errorMessage.textContent = '';
+        }
+
+        if (!date || !time) {
+            errorMessage.textContent = 'Please select both date and time.';
+            isValid = false;
+        } else {
+            errorMessage.textContent = '';
         }
 
         return isValid;
     }
 
-    // Button event listener for form submission
-    submitButton.addEventListener('click', function(event) {
+    // Submit button event handler
+    submitButton.addEventListener('click', (event) => {
         event.preventDefault();
-
         if (validateForm()) {
             loadingIndicator.style.display = 'block';
-            resultContainer.innerHTML = '';
+            errorMessage.textContent = '';
+            successMessage.textContent = '';
 
-            setTimeout(function() {
+            // Simulate API call
+            setTimeout(() => {
                 loadingIndicator.style.display = 'none';
-                resultContainer.innerHTML = `
-                    <h3>Patient Information</h3>
-                    <p>Name: ${patientNameInput.value}</p>
-                    <p>Age: ${patientAgeInput.value}</p>
-                    <p>Gender: ${patientGenderInput.value}</p>
-                `;
-            }, 1500); // Simulate server response delay
-        }
-    });
-});
-
-
-### Explanation:
-- **Form Validation**: The `validateForm` function checks if all required fields are filled correctly.
-- **Button Event Listener**: The `submitButton` listens for a click event. When clicked, it prevents the default form submission behavior, validates the form, and then simulates a server response with a loading indicator.
-- **Dynamic Content**: The success message is dynamically created and displayed in the `resultContainer`.
-- **Loading Indicator**: A simple loading indicator is shown while the simulated server response is being processed.
-
-### HTML Structure Example:
+                successMessage.textContent = 'Appointment scheduled successfully!';
+                successMessage.style.color = 'green';
+            },
 
 (() => {
 "use strict";
