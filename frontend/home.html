@@ -9,49 +9,86 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar">
-            <div class="logo">HMS</div>
-            <ul class="nav-links">
-                <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                <li><a href="#/patients">Patients</a></li>
-                <li><a href="#/appointments">Appointments</a></li>
-                <li><a href="#/medicalrecords">Medical Records</a></li>
-                <li><a href="#/settings">Settings</a></li>
-                <li><a href="#/logout">Logout</a></li>
-            </ul>
-        </nav>
-
-        <div class="container">
-            <div class="sidebar">
-                <div class="user-profile">
-                    <img src="profile.png" alt="User Profile">
-                    <span>John Doe</span>
-                </div>
-                <ul class="sidebar-links">
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patients">Patients</a></li>
-                    <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medicalrecords">Medical Records</a></li>
-                    <li><a href="#/settings">Settings</a></li>
+    <div class="app-container">
+        <header>
+            <div class="logo">Hospital Management System</div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patient Management</a></li>
+                    <li><a href="#/appointments">Appointment Scheduling</a></li>
+                    <li><a href="#/staff">Staff Management</a></li>
+                    <li><a href="#/inventory">Inventory Management</a></li>
                 </ul>
-            </div>
-
-            <main>
-                <div class="content">
-                    <router-view></router-view>
-                </div>
-            </main>
-        </div>
-
+            </nav>
+        </header>
+        <main>
+            <div id="content"></div>
+        </main>
         <footer>
-            <p>&copy; 2023 Hospital Management System. All rights reserved.</p>
+            <p>&copy; 2023 Hospital Management System</p>
         </footer>
     </div>
-
     
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>
+
+<!-- style.css -->
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    border-bottom: 2px solid white;
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+}
+
+footer {
+    background-color:

@@ -1,66 +1,84 @@
-// Assuming the HTML structure is as follows:
-// <form id="patientForm">
-//     <input type="text" id="name" name="name" placeholder="Name" required>
-//     <input type="date" id="dob" name="dob" placeholder="Date of Birth" required>
-//     <input type="email" id="email" name="email" placeholder="Email" required>
-//     <button type="submit">Submit</button>
-// </form>
+Certainly! Below is a JavaScript snippet that includes form validation, button events, dynamic content updates, and loading indicators for a hospital management system. This example assumes you have an HTML structure in place.
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('patientForm');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const doctorSelect = document.getElementById('doctor');
+    const appointmentDateInput = document.getElementById('appointmentDate');
+    const appointmentTimeInput = document.getElementById('appointmentTime');
+    const submitButton = document.getElementById('submitAppointment');
+    const dynamicContentDiv = document.getElementById('dynamicContent');
     const loadingIndicator = document.getElementById('loadingIndicator');
-    const successMessage = document.getElementById('successMessage');
+
+    // Function to show loading indicator
+    function showLoading() {
+        loadingIndicator.style.display = 'block';
+    }
+
+    // Function to hide loading indicator
+    function hideLoading() {
+        loadingIndicator.style.display = 'none';
+    }
 
     // Form Validation
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        loadingIndicator.style.display = 'block';
-        const name = document.getElementById('name').value;
-        const dob = document.getElementById('dob').value;
-        const email = document.getElementById('email').value;
-
-        if (!name || !dob || !email) {
-            alert('Please fill in all fields.');
-            loadingIndicator.style.display = 'none';
+        if (!validateForm()) {
             return;
         }
-
-        // Simulate an AJAX request for form submission
-        setTimeout(() => {
-            loadingIndicator.style.display = 'none';
-            successMessage.style.display = 'block';
-        }, 2000);
+        submitAppointment();
     });
+
+    // Validate Form
+    function validateForm() {
+        let isValid = true;
+
+        if (!nameInput.value.trim()) {
+            alert('Name is required.');
+            isValid = false;
+        } else if (!ageInput.value.trim() || isNaN(ageInput.value)) {
+            alert('Age must be a number.');
+            isValid = false;
+        } else if (!doctorSelect.value) {
+            alert('Doctor is required.');
+            isValid = false;
+        } else if (!appointmentDateInput.value.trim()) {
+            alert('Appointment date is required.');
+            isValid = false;
+        } else if (!appointmentTimeInput.value.trim()) {
+            alert('Appointment time is required.');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Submit Appointment (Simulating AJAX call)
+    function submitAppointment() {
+        showLoading();
+        setTimeout(() => {
+            // Simulate successful submission
+            hideLoading();
+            dynamicContentDiv.innerHTML = `<p>Appointment submitted successfully!</p>`;
+        }, 2000);
+    }
 
     // Button Events
-    const button = document.querySelector('#patientForm button');
-    button.addEventListener('click', () => {
-        console.log('Button clicked!');
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (!validateForm()) {
+            return;
+        }
+        submitAppointment();
     });
-
-    // Dynamic Content
-    const dynamicContent = document.getElementById('dynamicContent');
-    function updateDynamicContent() {
-        dynamicContent.textContent = `Current Date: ${new Date().toLocaleString()}`;
-    }
-    setInterval(updateDynamicContent, 1000);
-
-    // Loading Indicator
-    function showLoadingIndicator() {
-        loadingIndicator.style.display = 'block';
-    }
-
-    function hideLoadingIndicator() {
-        loadingIndicator.style.display = 'none';
-    }
-
-    // Example usage
-    showLoadingIndicator();
-    setTimeout(hideLoadingIndicator, 3000);
 });
 
 
-This JavaScript code handles form validation, button events, dynamic content updates, and loading indicators for a hospital management system. It assumes the presence of certain HTML elements with specific IDs.
+### HTML Structure Example
+
+Here’s a simple HTML structure to
 
 (() => {
 "use strict";
