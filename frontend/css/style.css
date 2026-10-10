@@ -1,97 +1,104 @@
-Certainly! Below is a complete set of CSS for a responsive hospital management system with a modern UI. This includes styles for the navbar, hero section, cards, forms, tables, and footer.
-
-
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
+/* Reset some default browser styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Global Styles */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-a:hover {
-    color: #007bff;
+    padding: 0 20px;
 }
 
 /* Navbar */
 .navbar {
-    background-color: #004080;
-    color: white;
-    padding: 15px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 0;
+    background-color: #333;
+    color: #fff;
 }
 
-.navbar .logo {
+.navbar-brand {
     font-size: 24px;
     font-weight: bold;
 }
 
-.navbar .nav-links {
+.nav-links {
+    list-style: none;
     display: flex;
 }
 
-.navbar .nav-links li {
-    list-style: none;
+.nav-links li {
     margin-left: 20px;
 }
 
-.navbar .nav-links li a {
-    color: white;
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.navbar .nav-links li a:hover {
-    color: #007bff;
+.nav-links a:hover {
+    color: #ff6b6b;
 }
 
 /* Hero Section */
 .hero {
-    background-image: url('https://via.placeholder.com/1200x400');
+    background-image: url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #fff;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 48px;
     margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 18px;
+    margin-bottom: 30px;
 }
 
 /* Cards */
 .card {
-    background-color: #f9f9f9;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-.card .card-header {
-    background-color: #004080;
-    color: white;
-    padding: 15px;
+.card-header {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-footer {
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-top: 1px solid #ddd;
 :root{--primary:#3157d5;--primary-dark:#2443ad;--bg:#f4f7fc;--text:#1c2740;--muted:#748099;--border:#e1e7f0}
 *{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
 header{padding:18px 24px;background:#fff;border-bottom:1px solid var(--border)}main,.container,.dashboard,.content{max-width:1240px;margin:28px auto;padding:24px}

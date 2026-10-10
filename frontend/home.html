@@ -10,36 +10,37 @@
 </head>
 <body>
     <div id="app">
-        <header>
-            <div class="logo">HMS</div>
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="#/dashboard" class="nav-item">Dashboard</a></li>
-                    <li><a href="#/patients" class="nav-item">Patients</a></li>
-                    <li><a href="#/appointments" class="nav-item">Appointments</a></li>
-                    <li><a href="#/medicalrecords" class="nav-item">Medical Records</a></li>
-                    <li><a href="#/staff" class="nav-item">Staff</a></li>
-                    <li><a href="#/settings" class="nav-item">Settings</a></li>
-                </ul>
-            </nav>
-        </header>
+        <nav class="navbar">
+            <div class="logo">Hospital Management System</div>
+            <ul class="nav-links">
+                <li><a href="#/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#/patients" class="nav-link">Patients</a></li>
+                <li><a href="#/appointments" class="nav-link">Appointments</a></li>
+                <li><a href="#/medicalrecords" class="nav-link">Medical Records</a></li>
+                <li><a href="#/staffschedules" class="nav-link">Staff Schedules</a></li>
+                <li><a href="#/settings" class="nav-link">Settings</a></li>
+                <li><a href="#/logout" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
         <div class="main-content">
             <aside class="sidebar">
-                <button id="toggle-sidebar">Menu</button>
-                <ul class="sidebar-list">
+                <div class="sidebar-header">
+                    <h3>Menu</h3>
+                </div>
+                <ul class="sidebar-menu">
                     <li><a href="#/dashboard">Dashboard</a></li>
                     <li><a href="#/patients">Patients</a></li>
                     <li><a href="#/appointments">Appointments</a></li>
                     <li><a href="#/medicalrecords">Medical Records</a></li>
-                    <li><a href="#/staff">Staff</a></li>
+                    <li><a href="#/staffschedules">Staff Schedules</a></li>
                     <li><a href="#/settings">Settings</a></li>
                 </ul>
             </aside>
             <div class="content">
-                <div id="content"></div>
+                <router-view></router-view>
             </div>
         </div>
-        <footer>
+        <footer class="footer">
             <p>&copy; 2023 Hospital Management System</p>
         </footer>
     </div>
