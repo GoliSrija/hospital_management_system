@@ -9,42 +9,81 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="app">
+    <div class="app-container">
         <header>
-            <nav class="navbar">
-                <a href="#/dashboard" class="navbar-brand">Hospital Management System</a>
-                <ul class="nav-links">
-                    <li><a href="#/dashboard" class="nav-link">Dashboard</a></li>
-                    <li><a href="#/patients" class="nav-link">Patients</a></li>
-                    <li><a href="#/appointments" class="nav-link">Appointments</a></li>
-                    <li><a href="#/scheduling" class="nav-link">Scheduling</a></li>
-                    <li><a href="#/billing" class="nav-link">Billing</a></li>
-                    <li><a href="#/settings" class="nav-link">Settings</a></li>
+            <div class="logo">Hospital Management System</div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#/dashboard" class="nav-item active">Dashboard</a></li>
+                    <li><a href="#/patients" class="nav-item">Patients</a></li>
+                    <li><a href="#/appointments" class="nav-item">Appointments</a></li>
+                    <li><a href="#/medicalrecords" class="nav-item">Medical Records</a></li>
+                    <li><a href="#/stafftasks" class="nav-item">Staff Tasks</a></li>
+                    <li><a href="#/logout" class="nav-item">Logout</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <div id="sidebar">
-                <div class="sidebar-header">
-                    <img src="logo.png" alt="Logo" class="logo">
-                    <h2>Hospital Management</h2>
-                </div>
-                <ul class="sidebar-menu">
-                    <li><a href="#/dashboard" class="sidebar-link">Dashboard</a></li>
-                    <li><a href="#/patients" class="sidebar-link">Patients</a></li>
-                    <li><a href="#/appointments" class="sidebar-link">Appointments</a></li>
-                    <li><a href="#/scheduling" class="sidebar-link">Scheduling</a></li>
-                    <li><a href="#/billing" class="sidebar-link">Billing</a></li>
-                    <li><a href="#/settings" class="sidebar-link">Settings</a></li>
-                </ul>
-            </div>
-            <div id="content">
-                <div id="app-content"></div>
-            </div>
+            <div id="content"></div>
         </main>
     </div>
+    
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+}
+
+.active {
+    color: #28a745;
+}
+
+main {
+    flex: 1;

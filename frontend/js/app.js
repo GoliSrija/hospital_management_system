@@ -1,83 +1,62 @@
-Certainly! Below is a simplified example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a basic HTML structure in place.
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('patientForm');
     const patientNameInput = document.getElementById('patientName');
     const patientAgeInput = document.getElementById('patientAge');
-    const patientInfoDiv = document.getElementById('patientInfo');
+    const patientGenderInput = document.getElementById('patientGender');
+    const submitButton = document.getElementById('submitButton');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const resultContainer = document.getElementById('resultContainer');
 
-    // Form Validation
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+    // Function to validate the form
+    function validateForm() {
         let isValid = true;
 
         if (!patientNameInput.value) {
-            alert('Patient name is required!');
+            alert('Patient name is required.');
+            isValid = false;
+        } else if (!patientAgeInput.value || isNaN(patientAgeInput.value) || patientAgeInput.value < 0) {
+            alert('Patient age must be a positive number.');
+            isValid = false;
+        } else if (!patientGenderInput.value) {
+            alert('Patient gender is required.');
             isValid = false;
         }
 
-        if (!patientAgeInput.value || isNaN(patientAgeInput.value) || parseInt(patientAgeInput.value) < 0) {
-            alert('Patient age must be a valid number!');
-            isValid = false;
-        }
+        return isValid;
+    }
 
-        if (isValid) {
-            showLoadingIndicator();
-            setTimeout(() => {
-                hideLoadingIndicator();
-                updatePatientInfo();
-            }, 1000); // Simulate API call delay
+    // Button event listener for form submission
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        if (validateForm()) {
+            loadingIndicator.style.display = 'block';
+            resultContainer.innerHTML = '';
+
+            setTimeout(function() {
+                loadingIndicator.style.display = 'none';
+                resultContainer.innerHTML = `
+                    <h3>Patient Information</h3>
+                    <p>Name: ${patientNameInput.value}</p>
+                    <p>Age: ${patientAgeInput.value}</p>
+                    <p>Gender: ${patientGenderInput.value}</p>
+                `;
+            }, 1500); // Simulate server response delay
         }
     });
-
-    // Button Events
-    const clearButton = document.getElementById('clearButton');
-    clearButton.addEventListener('click', () => {
-        form.reset();
-        patientInfoDiv.innerHTML = '';
-    });
-
-    // Dynamic Content
-    function updatePatientInfo() {
-        const patientName = patientNameInput.value;
-        const patientAge = patientAgeInput.value;
-        const patientInfo = `
-            <div>
-                <p><strong>Patient Name:</strong> ${patientName}</p>
-                <p><strong>Patient Age:</strong> ${patientAge}</p>
-            </div>
-        `;
-        patientInfoDiv.innerHTML = patientInfo;
-    }
-
-    // Loading Indicator
-    function showLoadingIndicator() {
-        const loadingIndicator = document.createElement('div');
-        loadingIndicator.classList.add('loading-indicator');
-        loadingIndicator.textContent = 'Loading...';
-        document.body.appendChild(loadingIndicator);
-    }
-
-    function hideLoadingIndicator() {
-        const loadingIndicator = document.querySelector('.loading-indicator');
-        if (loadingIndicator) {
-            loadingIndicator.remove();
-        }
-    }
 });
 
 
-### HTML Structure Example
+### Explanation:
+- **Form Validation**: The `validateForm` function checks if all required fields are filled correctly.
+- **Button Event Listener**: The `submitButton` listens for a click event. When clicked, it prevents the default form submission behavior, validates the form, and then simulates a server response with a loading indicator.
+- **Dynamic Content**: The success message is dynamically created and displayed in the `resultContainer`.
+- **Loading Indicator**: A simple loading indicator is shown while the simulated server response is being processed.
 
-To use the above JavaScript, you would need the following HTML structure:
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content
+### HTML Structure Example:
 
 (() => {
 "use strict";
