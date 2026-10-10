@@ -11,22 +11,21 @@
 <body>
     <div id="app">
         <nav class="navbar">
-            <div class="logo">Hospital Management System</div>
+            <div class="logo">HMS</div>
             <ul class="nav-links">
-                <li><a href="#/dashboard" class="nav-link">Dashboard</a></li>
-                <li><a href="#/patients" class="nav-link">Patients</a></li>
-                <li><a href="#/appointments" class="nav-link">Appointments</a></li>
-                <li><a href="#/records" class="nav-link">Medical Records</a></li>
-                <li><a href="#/staff" class="nav-link">Staff Scheduling</a></li>
-                <li><a href="#/login" class="nav-link">Login</a></li>
+                <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                <li><a href="#/patients">Patients</a></li>
+                <li><a href="#/appointments">Appointments</a></li>
+                <li><a href="#/emr">EMR</a></li>
+                <li><a href="#/inventory">Inventory</a></li>
+                <li><a href="#/logout">Logout</a></li>
             </ul>
         </nav>
-        <main>
-            <div id="content"></div>
-        </main>
-        <footer>
-            <p>&copy; 2023 Hospital Management System</p>
-        </footer>
+        <div class="content">
+            <main>
+                <router-view></router-view>
+            </main>
+        </div>
     </div>
     
 
@@ -34,43 +33,3 @@
 <script src="js/app.js" defer></script>
 </body>
 </html>
-
-<style>
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #007BFF;
-    color: white;
-}
-
-.nav-links {
-    list-style-type: none;
-    display: flex;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s;
-}
-
-.nav-links a:hover {
-    background-color: rgba(0, 123, 255, 0.5);
-}
-
-#content {
-    margin: 2rem;
-}
-
-.card {
-    border: 1px solid #6c757d;
-    border-radius: 8px;
