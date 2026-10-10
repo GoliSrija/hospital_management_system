@@ -1,7 +1,4 @@
-Certainly! Below is a complete and responsive CSS for a hospital management system. This CSS includes a modern UI with a navbar, hero section, cards, forms, tables, and footer.
-
-
-/* Reset some default browser styles */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
@@ -15,83 +12,92 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Global Styles */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Navbar */
+/* Navbar Styles */
 .navbar {
-    background: #2c3e50;
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #fff;
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+.navbar a, .navbar button {
+    color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
-.navbar a:hover {
-    background: #ddd;
-    color: black;
-}
-
-.navbar a.active {
-    background: #4CAF50;
-    color: white;
+.navbar a:hover, .navbar button:hover {
+    text-decoration: underline;
 }
 
 /* Hero Section */
 .hero {
-    background: url('path/to/your/image.jpg') no-repeat center center;
+    height: 50vh;
+    background-image: url('hero-background.jpg');
     background-size: cover;
-    height: 500px;
-    position: relative;
-    color: white;
-    text-align: center;
-    padding-top: 200px;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 20px;
-    margin-bottom: 40px;
-}
-
-.hero .btn {
-    padding: 10px 20px;
-    background: #2c3e50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.hero .btn:hover {
-    background: #4CAF50;
+    font-size: 1.2rem;
+    max-width: 70%;
 }
 
 /* Cards */
 .card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem;
+    width: calc(33.33% - 4rem);
 }
 
-.card-header {
-    padding: 20px;
-    background: #2c3e50;
+.card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
 :root{--primary:#3157d5;--primary-dark:#2443ad;--bg:#f4f7fc;--text:#1c2740;--muted:#748099;--border:#e1e7f0}
 *{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
 header{padding:18px 24px;background:#fff;border-bottom:1px solid var(--border)}main,.container,.dashboard,.content{max-width:1240px;margin:28px auto;padding:24px}

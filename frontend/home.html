@@ -12,43 +12,37 @@
     <div id="app">
         <header>
             <nav class="navbar">
-                <a href="#/dashboard" class="logo">Hospital MS</a>
-                <button class="nav-toggle">☰</button>
+                <a href="#/dashboard" class="navbar-brand">Hospital Management System</a>
                 <ul class="nav-links">
-                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                    <li><a href="#/patients">Patients</a></li>
-                    <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medical-record">Medical Record</a></li>
-                    <li><a href="#/billing">Billing & Payment</a></li>
-                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a href="#/patients" class="nav-link">Patients</a></li>
+                    <li><a href="#/appointments" class="nav-link">Appointments</a></li>
+                    <li><a href="#/scheduling" class="nav-link">Scheduling</a></li>
+                    <li><a href="#/billing" class="nav-link">Billing</a></li>
+                    <li><a href="#/settings" class="nav-link">Settings</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patients">Patients</a></li>
-                    <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medical-record">Medical Record</a></li>
-                    <li><a href="#/billing">Billing & Payment</a></li>
-                    <li><a href="#/settings">Settings</a></li>
+            <div id="sidebar">
+                <div class="sidebar-header">
+                    <img src="logo.png" alt="Logo" class="logo">
+                    <h2>Hospital Management</h2>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#/dashboard" class="sidebar-link">Dashboard</a></li>
+                    <li><a href="#/patients" class="sidebar-link">Patients</a></li>
+                    <li><a href="#/appointments" class="sidebar-link">Appointments</a></li>
+                    <li><a href="#/scheduling" class="sidebar-link">Scheduling</a></li>
+                    <li><a href="#/billing" class="sidebar-link">Billing</a></li>
+                    <li><a href="#/settings" class="sidebar-link">Settings</a></li>
                 </ul>
-            </aside>
-            <section id="content">
-                <h1>Welcome to Hospital Management System</h1>
-                <p>Manage your hospital operations seamlessly with our comprehensive system.</p>
-                <div class="cards">
-                    <div class="card">
-                        <h2>Patient Records</h2>
-                        <p>View and manage patient records.</p>
-                        <button class="action-button">View Records</button>
-                    </div>
-                    <div class="card">
-                        <h2>Appointments</h2>
-                        <p>Schedule and manage appointments.</p>
-                        <button class="action-button">Schedule Appointment</button>
-                    </div
+            </div>
+            <div id="content">
+                <div id="app-content"></div>
+            </div>
+        </main>
+    </div>
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
