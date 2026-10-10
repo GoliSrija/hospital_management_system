@@ -12,52 +12,52 @@
     <div id="app">
         <header>
             <nav class="navbar">
-                <div class="logo">Hospital Management System</div>
+                <a href="#/dashboard" class="logo">HospitalMS</a>
                 <ul class="nav-links">
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patients">Patient Management</a></li>
-                    <li><a href="#/appointments">Appointment Scheduling</a></li>
-                    <li><a href="#/billing">Billing and Payment Processing</a></li>
-                    <li><a href="#/logout">Logout</a></li>
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/emr">EMR</a></li>
+                    <li><a href="#/inventory">Inventory</a></li>
+                    <li><a href="#/settings">Settings</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patients">Patient Management</a></li>
-                    <li><a href="#/appointments">Appointment Scheduling</a></li>
-                    <li><a href="#/billing">Billing and Payment Processing</a></li>
-                </ul>
-            </aside>
-            <section id="content">
-                <div class="dashboard-cards">
-                    <div class="card">
-                        <h3>Total Patients</h3>
-                        <p>1234</p>
+            <div id="content">
+                <section class="dashboard-section">
+                    <h2>Dashboard</h2>
+                    <div class="dashboard-cards">
+                        <div class="card">
+                            <h3>New Patients Today</h3>
+                            <p>15</p>
+                        </div>
+                        <div class="card">
+                            <h3>Total Appointments</h3>
+                            <p>120</p>
+                        </div>
+                        <div class="card">
+                            <h3>Medical Records Created</h3>
+                            <p>75</p>
+                        </div>
+                        <div class="card">
+                            <h3>Inventory Items</h3>
+                            <p>100</p>
+                        </div>
                     </div>
-                    <div class="card">
-                        <h3>Total Appointments</h3>
-                        <p>567</p>
-                    </div>
-                    <div class="card">
-                        <h3>Total Bills</h3>
-                        <p>$23456</p>
-                    </div>
-                </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button>Search</button>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Patient ID</th>
-                            <th>Name</th>
-                            <th>Date of Birth</th>
-                            <th>Actions</th>
-                        </tr>
+                    <button class="generate-project-btn">Generate AI Project</button>
+                </section>
+                <section class="appointments-section">
+                    <h2>Appointments</h2>
+                    <form>
+                        <input type="text" placeholder="Search Patient Name" />
+                        <input type="date" placeholder="Date" />
+                        <button type="submit">Search</button>
+                    </form>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
