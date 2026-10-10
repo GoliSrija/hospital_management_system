@@ -1,79 +1,68 @@
-Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a simplified JavaScript code snippet for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a basic HTML structure to work with.
 
+### HTML Structure
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <style>
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .loading-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading"></div>
+
+    <form id="patientForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br><br>
+        <label for="department">Department:</label>
+        <select id="department" name="department" required>
+            <option value="">Select Department</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Orthopedics">Orthopedics</option>
+        </select>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="hospital.js"></script>
+</body>
+</html>
+
+
+### JavaScript (hospital.js)
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('patientForm');
-    const nameInput = document.getElementById('name');
-    const ageInput = document.getElementById('age');
-    const emailInput = document.getElementById('email');
-    const submitButton = document.getElementById('submitPatient');
-    const patientList = document.getElementById('patientList');
-    const loadingIndicator = document.getElementById('loadingIndicator');
-
-    // Form Validation Function
-    function validateForm() {
-        let isValid = true;
-
-        if (!nameInput.value) {
-            alert('Name is required.');
-            isValid = false;
-        }
-
-        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value < 1) {
-            alert('Age must be a number greater than 0.');
-            isValid = false;
-        }
-
-        if (!emailInput.value) {
-            alert('Email is required.');
-            isValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
-            alert('Invalid email format.');
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
-    // Button Event for Submitting Patient Information
-    submitButton.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        if (validateForm()) {
-            loadingIndicator.style.display = 'block';
-
-            const patientData = {
-                name: nameInput.value,
-                age: ageInput.value,
-                email: emailInput.value
-            };
-
-            // Simulate API call with setTimeout for demonstration purposes
-            setTimeout(() => {
-                addPatientToList(patientData);
-                clearForm();
-                loadingIndicator.style.display = 'none';
-            }, 2000); // Simulating delay of 2 seconds
-        }
-    });
-
-    // Function to Add Patient Data to the List
-    function addPatientToList(patientData) {
-        const li = document.createElement('li');
-        li.textContent = `${patientData.name}, Age: ${patientData.age}, Email: ${patientData.email}`;
-        patientList.appendChild(li);
-    }
-
-    // Function to Clear the Form
-    function clearForm() {
-        nameInput.value = '';
-        ageInput.value = '';
-        emailInput.value = '';
-    }
-
-    // Dynamic Content Update Example
-    const dynamicContentButton = document.getElementById('dynamicContentButton');
-    dynamic
+    const resultDiv = document.getElementById('result');
+    const loadingDiv = document.getElementById('loading');
 
 (() => {
 "use strict";

@@ -10,45 +10,46 @@
 </head>
 <body>
     <div id="app">
-        <header>
-            <nav class="navbar">
-                <div class="logo">Hospital Management System</div>
-                <button class="toggle-sidebar" aria-label="Toggle Sidebar">&#9776;</button>
-                <div class="user-profile">
-                    <span>User Name</span>
-                    <img src="profile.jpg" alt="Profile Picture">
-                </div>
-            </nav>
-            <aside class="sidebar">
-                <ul class="nav-links">
-                    <li><a href="#/dashboard" class="nav-link">Dashboard</a></li>
-                    <li><a href="#/patients" class="nav-link">Patients</a></li>
-                    <li><a href="#/appointments" class="nav-link">Appointments</a></li>
-                    <li><a href="#/records" class="nav-link">Medical Records</a></li>
-                    <li><a href="#/staff" class="nav-link">Staff</a></li>
-                    <li><a href="#/departments" class="nav-link">Departments</a></li>
-                    <li><a href="#/settings" class="nav-link">Settings</a></li>
-                    <li><a href="#/logout" class="nav-link">Logout</a></li>
+        <nav class="navbar">
+            <div class="logo">HMS</div>
+            <ul class="nav-links">
+                <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                <li><a href="#/patients">Patients</a></li>
+                <li><a href="#/appointments">Appointments</a></li>
+                <li><a href="#/records">Medical Records</a></li>
+                <li><a href="#/billing">Billing & Payments</a></li>
+                <li><a href="#/staff">Staff</a></li>
+                <li><a href="#/logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div id="sidebar">
+                <ul>
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/records">Medical Records</a></li>
+                    <li><a href="#/billing">Billing & Payments</a></li>
+                    <li><a href="#/staff">Staff</a></li>
                 </ul>
-            </aside>
-        </header>
-        <main>
-            <div class="content">
-                <div id="dashboard" class="page">
-                    <h1>Dashboard</h1>
-                    <div class="cards">
-                        <div class="card">
-                            <h2>Patient Count</h2>
-                            <p>12345</p>
-                        </div>
-                        <div class="card">
-                            <h2>Appointment Count</h2>
-                            <p>6789</p>
-                        </div>
-                        <div class="card">
-                            <h2>Medical Record Count</h2>
-                            <p>101112</p>
-                        </div>
+            </div>
+
+            <main>
+                <div id="content">
+                    <h1>Welcome to Hospital Management System</h1>
+                    <p>This is the dashboard.</p>
+                    <div class="card">
+                        <h2>Patient Count</h2>
+                        <p>12345</p>
+                    </div>
+                    <div class="card">
+                        <h2>Appointment Count</h2>
+                        <p>67890</p>
+                    </div>
+                    <div class="card">
+                        <h2>Medical Record Count</h2>
+                        <p>98765</p>
                     </div
 
 <script src="js/config.js" defer></script>
