@@ -1,70 +1,83 @@
-Certainly! Below is a JavaScript snippet that covers form validation, button events, dynamic content updates, and loading indicators for a hospital management system. This example assumes you have a basic HTML structure in place.
+Certainly! Below is a basic JavaScript implementation for a hospital management system with the specified requirements:
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Form Validation
-    const form = document.getElementById('patientForm');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const nameInput = document.getElementById('name');
-        const ageInput = document.getElementById('age');
-        const emailInput = document.getElementById('email');
-        const phoneInput = document.getElementById('phone');
+// Form Validation
+const form = document.getElementById('patient-form');
+const nameInput = document.getElementById('name');
+const ageInput = document.getElementById('age');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
 
-        if (!nameInput.value) {
-            alert('Name is required!');
-            return;
-        }
-        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value < 1) {
-            alert('Age must be a valid number greater than 0!');
-            return;
-        }
-        if (!emailInput.value || !isValidEmail(emailInput.value)) {
-            alert('Invalid email address!');
-            return;
-        }
-        if (!phoneInput.value || !isValidPhone(phoneInput.value)) {
-            alert('Invalid phone number!');
-            return;
-        }
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        // If all validations pass, submit the form or handle it as needed
-        alert('Form submitted successfully!');
-    });
+    // Clear previous error messages
+    clearErrors();
 
-    // Button Events
-    const loadMoreButton = document.getElementById('loadMorePatients');
-    loadMoreButton.addEventListener('click', function() {
-        showLoadingIndicator();
-        setTimeout(function() {
-            hideLoadingIndicator();
-            updatePatientList();
-        }, 2000); // Simulate async data fetching with a delay
-    });
-
-    // Dynamic Content
-    function updatePatientList() {
-        const patientList = document.getElementById('patientList');
-        patientList.innerHTML = '<li>Patient 1</li><li>Patient 2</li><li>Patient 3</li>';
-        // In a real application, this would fetch data from an API
+    // Validate Name
+    if (!validateName(nameInput)) {
+        showError(nameInput, 'Please enter a valid name.');
     }
 
-    // Loading Indicators
-    function showLoadingIndicator() {
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        loadingIndicator.style.display = 'block';
+    // Validate Age
+    if (!validateAge(ageInput)) {
+        showError(ageInput, 'Please enter a valid age (1-120).');
     }
 
-    function hideLoadingIndicator() {
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        loadingIndicator.style.display = 'none';
+    // Validate Email
+    if (!validateEmail(emailInput)) {
+        showError(emailInput, 'Please enter a valid email address.');
+    }
+
+    // Validate Phone
+    if (!validatePhone(phoneInput)) {
+        showError(phoneInput, 'Please enter a valid phone number.');
+    }
+
+    // If all validations pass, submit the form
+    if (isValid()) {
+        showSuccess();
+        console.log('Form submitted successfully!');
     }
 });
 
-// Helper Functions
-function isValidEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;
+function validateName(input) {
+    const value = input.value.trim();
+    return value && /^[a-zA-Z\s]+$/.test(value);
+}
+
+function validateAge(input) {
+    const value = parseInt(input.value);
+    return !isNaN(value) && value >= 1 && value <= 120;
+}
+
+function validateEmail(input) {
+    const value = input.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return value && emailPattern.test(value);
+}
+
+function validatePhone(input) {
+    const value = input.value.trim();
+    const phonePattern = /^\d{10}$/; // Example: 10-digit phone number
+    return value && phonePattern.test(value);
+}
+
+function showError(input, message) {
+    const formGroup = input.parentElement;
+    const errorElement = formGroup.querySelector('.error-message');
+    if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.className = 'error-message';
+        formGroup.appendChild(errorElement);
+    }
+    errorElement.textContent = message;
+    formGroup.classList.add('error');
+}
+
+function clearErrors() {
+    const formGroups = document.querySelectorAll('.form-group');
+    formGroups.forEach(group
 
 (() => {
 "use strict";

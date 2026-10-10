@@ -1,3 +1,6 @@
+Certainly! Below is a complete and modern CSS for a hospital management system that meets the specified requirements:
+
+
 /* General Styles */
 * {
     margin: 0;
@@ -12,88 +15,93 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #333;
-    color: #fff;
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.navbar .logo {
-    font-size: 24px;
+/* Navbar */
+.navbar {
+    background-color: #007bff;
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
-.navbar .nav-links {
+.navbar-nav {
     display: flex;
+    justify-content: center;
+    list-style-type: none;
 }
 
-.navbar .nav-links li {
-    list-style: none;
-    margin-left: 20px;
+.nav-item {
+    margin: 0 1rem;
 }
 
-.navbar .nav-links a {
+.nav-link {
+    color: white;
+    font-size: 1rem;
     text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    transition: color 0.3s ease;
 }
 
-.navbar .nav-links a:hover {
-    color: #ccc;
+.nav-link:hover {
+    color: #0056b3;
 }
 
 /* Hero Section */
 .hero {
-    background: url('path-to-your-image.jpg') no-repeat center center/cover;
-    height: 100vh;
+    background-image: url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: #fff;
+    justify-content: center;
+    color: white;
     text-align: center;
-    position: relative;
 }
 
-.hero .hero-text {
-    max-width: 600px;
-    padding: 0 20px;
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-.hero .hero-text h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.hero .hero-text p {
-    font-size: 20px;
-    margin-bottom: 40px;
-}
-
-.hero .hero-button {
-    padding: 15px 30px;
-    background-color: #fff;
-    color: #333;
+.hero-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
-.hero .hero-button:hover {
-    background-color: #ccc;
+.hero-btn:hover {
+    background-color: #0056b3;
 }
 
 /* Cards */
 .card {
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,
+}
+
+.card-header {
+    padding: 1rem;
+    background-color
 :root{--primary:#3157d5;--primary-dark:#2443ad;--bg:#f4f7fc;--text:#1c2740;--muted:#748099;--border:#e1e7f0}
 *{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
 header{padding:18px 24px;background:#fff;border-bottom:1px solid var(--border)}main,.container,.dashboard,.content{max-width:1240px;margin:28px auto;padding:24px}
