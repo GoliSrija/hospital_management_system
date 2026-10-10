@@ -1,73 +1,79 @@
-Certainly! Below is a simplified JavaScript code snippet for a basic hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a basic HTML structure set up.
+Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content updates, and loading indicators.
 
 
-// Function to validate the form
-function validateForm() {
-    const name = document.getElementById('patientName').value;
-    const age = document.getElementById('patientAge').value;
-    const diagnosis = document.getElementById('diagnosis').value;
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('patientForm');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const emailInput = document.getElementById('email');
+    const submitButton = document.getElementById('submitPatient');
+    const patientList = document.getElementById('patientList');
+    const loadingIndicator = document.getElementById('loadingIndicator');
 
-    let isValid = true;
+    // Form Validation Function
+    function validateForm() {
+        let isValid = true;
 
-    if (name === '') {
-        alert("Patient Name cannot be empty");
-        isValid = false;
+        if (!nameInput.value) {
+            alert('Name is required.');
+            isValid = false;
+        }
+
+        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value < 1) {
+            alert('Age must be a number greater than 0.');
+            isValid = false;
+        }
+
+        if (!emailInput.value) {
+            alert('Email is required.');
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+            alert('Invalid email format.');
+            isValid = false;
+        }
+
+        return isValid;
     }
 
-    if (age === '' || isNaN(age) || age < 0) {
-        alert("Invalid Age");
-        isValid = false;
+    // Button Event for Submitting Patient Information
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        if (validateForm()) {
+            loadingIndicator.style.display = 'block';
+
+            const patientData = {
+                name: nameInput.value,
+                age: ageInput.value,
+                email: emailInput.value
+            };
+
+            // Simulate API call with setTimeout for demonstration purposes
+            setTimeout(() => {
+                addPatientToList(patientData);
+                clearForm();
+                loadingIndicator.style.display = 'none';
+            }, 2000); // Simulating delay of 2 seconds
+        }
+    });
+
+    // Function to Add Patient Data to the List
+    function addPatientToList(patientData) {
+        const li = document.createElement('li');
+        li.textContent = `${patientData.name}, Age: ${patientData.age}, Email: ${patientData.email}`;
+        patientList.appendChild(li);
     }
 
-    if (diagnosis === '') {
-        alert("Diagnosis cannot be empty");
-        isValid = false;
+    // Function to Clear the Form
+    function clearForm() {
+        nameInput.value = '';
+        ageInput.value = '';
+        emailInput.value = '';
     }
 
-    return isValid;
-}
-
-// Button Event for submitting the form
-document.getElementById('submitBtn').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    if (validateForm()) {
-        const patientName = document.getElementById('patientName').value;
-        const patientAge = document.getElementById('patientAge').value;
-        const diagnosis = document.getElementById('diagnosis').value;
-
-        // Show loading indicator
-        const loader = document.getElementById('loadingIndicator');
-        loader.style.display = 'block';
-
-        // Simulate API call with setTimeout
-        setTimeout(function() {
-            // Hide loading indicator
-            loader.style.display = 'none';
-
-            // Add patient data to the list
-            const patientsList = document.getElementById('patientsList');
-            const patientItem = document.createElement('div');
-            patientItem.className = 'patient-item';
-            patientItem.innerHTML = `
-                <p><strong>${patientName}</strong></p>
-                <p>Age: ${patientAge}</p>
-                <p>Diagnosis: ${diagnosis}</p>
-            `;
-            patientsList.appendChild(patientItem);
-
-            // Clear form fields
-            document.getElementById('patientName').value = '';
-            document.getElementById('patientAge').value = '';
-            document.getElementById('diagnosis').value = '';
-        }, 2000); // Simulated API call delay
-    }
-});
-
-// Dynamic Content - Adding patients manually
-document.getElementById('addPatientBtn').addEventListener('click', function() {
-    const patientName = document.getElementById('manualPatientName').value;
-    const patientAge = document.getElementById
+    // Dynamic Content Update Example
+    const dynamicContentButton = document.getElementById('dynamicContentButton');
+    dynamic
 
 (() => {
 "use strict";
