@@ -1,68 +1,75 @@
-Certainly! Below is a simplified JavaScript code snippet for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a basic HTML structure to work with.
-
-### HTML Structure
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Management System</title>
-    <style>
-        .loading {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-        }
-        .loading-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="loading" id="loading"></div>
-
-    <form id="patientForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required>
-        <br><br>
-        <label for="department">Department:</label>
-        <select id="department" name="department" required>
-            <option value="">Select Department</option>
-            <option value="Pediatrics">Pediatrics</option>
-            <option value="Cardiology">Cardiology</option>
-            <option value="Orthopedics">Orthopedics</option>
-        </select>
-        <br><br>
-        <button type="submit">Submit</button>
-    </form>
-
-    <div id="result"></div>
-
-    <script src="hospital.js"></script>
-</body>
-</html>
+Certainly! Below is a simplified example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
 
 
-### JavaScript (hospital.js)
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    // Form Validation
     const form = document.getElementById('patientForm');
-    const resultDiv = document.getElementById('result');
-    const loadingDiv = document.getElementById('loading');
+    const patientName = document.getElementById('patientName');
+    const patientAge = document.getElementById('patientAge');
+    const patientEmail = document.getElementById('patientEmail');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
+
+        // Simulate AJAX request with a delay to show loading indicator
+        showLoadingIndicator();
+        setTimeout(function() {
+            hideLoadingIndicator();
+            alert('Patient information saved successfully!');
+        }, 2000);
+    });
+
+    function validateForm() {
+        let isValid = true;
+
+        if (patientName.value.trim() === '') {
+            alert('Patient name is required.');
+            isValid = false;
+        }
+
+        if (isNaN(patientAge.value) || patientAge.value <= 0) {
+            alert('Patient age must be a positive number.');
+            isValid = false;
+        }
+
+        if (!isValidEmail(patientEmail.value)) {
+            alert('Invalid email address.');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    function isValidEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    // Button Events
+    const appointmentButton = document.getElementById('makeAppointment');
+    appointmentButton.addEventListener('click', function() {
+        showLoadingIndicator();
+        setTimeout(function() {
+            hideLoadingIndicator();
+            alert('Appointment scheduled successfully!');
+        }, 2000);
+    });
+
+    function showLoadingIndicator() {
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        loadingIndicator.style.display = 'block';
+    }
+
+    function hideLoadingIndicator() {
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        loadingIndicator.style.display = 'none';
+    }
+
+    // Dynamic Content
 
 (() => {
 "use strict";
