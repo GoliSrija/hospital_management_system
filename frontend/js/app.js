@@ -1,74 +1,85 @@
-Certainly! Below is a JavaScript snippet that covers form validation, button events, dynamic content, and loading indicators for a simple hospital management system. This example assumes you have a basic HTML structure to work with.
+Certainly! Below is a JavaScript snippet for a simple hospital management system that includes form validation, button events, dynamic content, and loading indicators.
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('patientForm');
-    const nameInput = document.getElementById('name');
-    const ageInput = document.getElementById('age');
-    const emailInput = document.getElementById('email');
-    const submitButton = document.getElementById('submitPatient');
+    const submitButton = document.getElementById('submitPatientForm');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
     const loadingIndicator = document.getElementById('loadingIndicator');
-    const feedbackMessage = document.getElementById('feedback');
-
+    
     // Function to show loading indicator
-    function showLoadingIndicator() {
+    function showLoading() {
         loadingIndicator.style.display = 'block';
     }
 
     // Function to hide loading indicator
-    function hideLoadingIndicator() {
+    function hideLoading() {
         loadingIndicator.style.display = 'none';
     }
 
     // Form Validation
-    function validateForm() {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        showLoading();
+
+        // Clear previous errors
+        errorMessage.textContent = '';
+
+        // Get form values
+        const name = document.getElementById('patientName').value;
+        const age = document.getElementById('patientAge').value;
+        const diagnosis = document.getElementById('diagnosis').value;
+
+        // Validate form
         let isValid = true;
 
-        if (!nameInput.value.trim()) {
-            alert('Name is required.');
+        if (!name || name.trim() === '') {
+            errorMessage.textContent = 'Please enter the patient\'s name.';
             isValid = false;
         }
 
-        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value < 1) {
-            alert('Age must be a valid number greater than 0.');
+        if (!age || age.trim() === '' || isNaN(age) || age < 1 || age > 120) {
+            errorMessage.textContent = 'Please enter a valid age between 1 and 120.';
             isValid = false;
         }
 
-        if (!emailInput.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-            alert('Please enter a valid email address.');
+        if (!diagnosis || diagnosis.trim() === '') {
+            errorMessage.textContent = 'Please enter a diagnosis.';
             isValid = false;
         }
 
-        return isValid;
-    }
-
-    // Button Event
-    submitButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        if (validateForm()) {
-            showLoadingIndicator();
+        if (isValid) {
+            // Simulate an AJAX request
             setTimeout(() => {
-                // Simulate server response
-                hideLoadingIndicator();
-                feedbackMessage.textContent = 'Patient record submitted successfully!';
-                feedbackMessage.style.color = 'green';
-            }, 2000); // Simulate delay
+                hideLoading();
+                successMessage.textContent = 'Patient record submitted successfully!';
+                form.reset();
+            }, 2000);
+        } else {
+            hideLoading();
         }
+    });
+
+    // Button Events
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        form.submit();
     });
 });
 
 
-### Explanation:
-1. **Event Listener**: The script waits until the DOM is fully loaded before executing.
-2. **Form Validation**:
-   - Checks if the name input is empty.
-   - Ensures the age is a valid number greater than 0.
-   - Validates the email format.
-3. **Button Event**:
-   - Prevents the default form submission.
-   - Shows a loading indicator when the form is submitted.
-   - Simulates a server response with a
+### HTML Structure Example
+
+Here's a basic HTML structure to complement the JavaScript:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</
 
 (() => {
 "use strict";
