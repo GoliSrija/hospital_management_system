@@ -10,29 +10,34 @@
 </head>
 <body>
     <div id="app">
-        <header>
+        <nav class="navbar">
             <div class="logo">Hospital Management System</div>
-            <nav>
-                <ul>
-                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+            <ul class="nav-links">
+                <li><a href="#/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#/patients" class="nav-link">Patients</a></li>
+                <li><a href="#/appointments" class="nav-link">Appointments</a></li>
+                <li><a href="#/records" class="nav-link">Medical Records</a></li>
+                <li><a href="#/communication" class="nav-link">Communication Tools</a></li>
+                <li><a href="#/logout" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div id="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="#/dashboard">Dashboard</a></li>
                     <li><a href="#/patients">Patients</a></li>
                     <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/medicalRecords">Medical Records</a></li>
-                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/records">Medical Records</a></li>
+                    <li><a href="#/communication">Communication Tools</a></li>
                 </ul>
-            </nav>
-        </header>
-        <main>
-            <aside>
-                <ul>
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patients">Patient Management</a></li>
-                    <li><a href="#/appointments">Appointment Scheduling</a></li>
-                    <li><a href="#/medicalRecords">Medical Records</a></li>
-                </ul>
-            </aside>
-            <section id="content"></section>
+            </div>
+            <div id="content">
+                <!-- Content will be injected here -->
+            </div>
         </main>
+        <footer>
+            <p>&copy; 2023 Hospital Management System. All rights reserved.</p>
+        </footer>
     </div>
     
 

@@ -1,4 +1,4 @@
-Certainly! Below is a basic JavaScript implementation for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a simple HTML structure to interact with.
+Certainly! Below is a JavaScript snippet that covers form validation, button events, dynamic content updates, and loading indicators for a hospital management system. This example assumes you have a basic HTML structure in place.
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -7,83 +7,64 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         
-        // Clear previous error messages
-        clearErrors();
-        
-        // Validate first name
-        if (!validateField(form.firstName)) {
+        const nameInput = document.getElementById('name');
+        const ageInput = document.getElementById('age');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+
+        if (!nameInput.value) {
+            alert('Name is required!');
             return;
         }
-        
-        // Validate last name
-        if (!validateField(form.lastName)) {
+        if (!ageInput.value || isNaN(ageInput.value) || ageInput.value < 1) {
+            alert('Age must be a valid number greater than 0!');
             return;
         }
-        
-        // Validate email
-        if (!validateEmail(form.email)) {
+        if (!emailInput.value || !isValidEmail(emailInput.value)) {
+            alert('Invalid email address!');
             return;
         }
-        
-        // Validate phone number
-        if (!validatePhoneNumber(form.phone)) {
+        if (!phoneInput.value || !isValidPhone(phoneInput.value)) {
+            alert('Invalid phone number!');
             return;
         }
-        
-        // If all fields are valid, submit the form
-        submitForm();
+
+        // If all validations pass, submit the form or handle it as needed
+        alert('Form submitted successfully!');
     });
 
     // Button Events
-    const addPatientButton = document.getElementById('addPatientButton');
-    addPatientButton.addEventListener('click', function() {
-        // Show loading indicator
+    const loadMoreButton = document.getElementById('loadMorePatients');
+    loadMoreButton.addEventListener('click', function() {
         showLoadingIndicator();
-        
-        // Simulate async operation
         setTimeout(function() {
-            // Hide loading indicator
             hideLoadingIndicator();
-            
-            // Add patient to list (for demonstration purposes)
-            addPatientToList();
-        }, 2000);
+            updatePatientList();
+        }, 2000); // Simulate async data fetching with a delay
     });
 
     // Dynamic Content
-    const patientList = document.getElementById('patientList');
-
-    // Function to add patient to list
-    function addPatientToList() {
-        const patientName = form.firstName.value + ' ' + form.lastName.value;
-        const patientItem = document.createElement('li');
-        patientItem.textContent = patientName;
-        patientList.appendChild(patientItem);
+    function updatePatientList() {
+        const patientList = document.getElementById('patientList');
+        patientList.innerHTML = '<li>Patient 1</li><li>Patient 2</li><li>Patient 3</li>';
+        // In a real application, this would fetch data from an API
     }
 
     // Loading Indicators
-    const loadingIndicator = document.getElementById('loadingIndicator');
-
     function showLoadingIndicator() {
+        const loadingIndicator = document.getElementById('loadingIndicator');
         loadingIndicator.style.display = 'block';
     }
 
     function hideLoadingIndicator() {
+        const loadingIndicator = document.getElementById('loadingIndicator');
         loadingIndicator.style.display = 'none';
     }
+});
 
-    // Helper Functions
-    function validateField(field) {
-        if (field.value.trim() === '') {
-            showError(field, 'This field is required.');
-            return false;
-        }
-        return true;
-    }
-
-    function validateEmail(emailField) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailField.value)) {
+// Helper Functions
+function isValidEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;
 
 (() => {
 "use strict";
