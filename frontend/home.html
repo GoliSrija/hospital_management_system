@@ -10,37 +10,45 @@
 </head>
 <body>
     <div id="app">
-        <header>
-            <nav class="navbar">
-                <a href="#/dashboard" class="logo">Hospital Management System</a>
-                <ul class="nav-links">
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patient-registration">Patient Registration</a></li>
-                    <li><a href="#/appointment-scheduling">Appointment Scheduling</a></li>
-                    <li><a href="#/medical-record-management">Medical Record Management</a></li>
-                    <li><a href="#/communication-tools">Communication Tools</a></li>
-                    <li><a href="#/login">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
+        <nav class="navbar">
+            <div class="logo">HMS</div>
+            <ul class="nav-links">
+                <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                <li><a href="#/patients">Patients</a></li>
+                <li><a href="#/appointments">Appointments</a></li>
+                <li><a href="#/medicalrecords">Medical Records</a></li>
+                <li><a href="#/settings">Settings</a></li>
+                <li><a href="#/logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
             <div class="sidebar">
-                <ul>
+                <div class="user-profile">
+                    <img src="profile.png" alt="User Profile">
+                    <span>John Doe</span>
+                </div>
+                <ul class="sidebar-links">
                     <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patient-registration">Patient Registration</a></li>
-                    <li><a href="#/appointment-scheduling">Appointment Scheduling</a></li>
-                    <li><a href="#/medical-record-management">Medical Record Management</a></li>
-                    <li><a href="#/communication-tools">Communication Tools</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/medicalrecords">Medical Records</a></li>
+                    <li><a href="#/settings">Settings</a></li>
                 </ul>
             </div>
-            <div class="content">
-                <router-view></router-view>
-            </div>
-        </main>
+
+            <main>
+                <div class="content">
+                    <router-view></router-view>
+                </div>
+            </main>
+        </div>
+
         <footer>
-            <p>&copy; 2023 Hospital Management System</p>
+            <p>&copy; 2023 Hospital Management System. All rights reserved.</p>
         </footer>
     </div>
+
     
 
 <script src="js/config.js" defer></script>
