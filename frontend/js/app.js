@@ -1,63 +1,83 @@
-Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example focuses on a patient registration form.
+Certainly! Below is a simplified JavaScript code snippet for a basic hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
 
 
-// Function to handle form submission
-function handleSubmit(event) {
-    event.preventDefault(); // Prevent the default form submission
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('patientForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const addressInput = document.getElementById('address');
+    const submitButton = document.getElementById('submitBtn');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const resultContainer = document.getElementById('result');
 
-    // Get form values
-    const name = document.getElementById('patientName').value;
-    const dob = document.getElementById('dob').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-
-    // Form validation
-    if (!name || !dob || !email || !phone) {
-        alert('All fields are required!');
-        return;
+    // Function to show loading indicator
+    function showLoading() {
+        loadingIndicator.style.display = 'block';
     }
 
-    // Check if email is valid
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Invalid email address!');
-        return;
+    // Function to hide loading indicator
+    function hideLoading() {
+        loadingIndicator.style.display = 'none';
     }
 
-    // Simulate API call with loading indicator
-    showLoadingIndicator();
+    // Form Validation
+    function validateForm() {
+        let isValid = true;
 
-    // Mocked API call
-    setTimeout(() => {
-        hideLoadingIndicator();
-        alert('Patient registered successfully!');
-    }, 2000); // Simulating API response delay
-}
+        if (!nameInput.value.trim()) {
+            alert('Name is required.');
+            isValid = false;
+        }
 
-// Function to show loading indicator
-function showLoadingIndicator() {
-    const loader = document.createElement('div');
-    loader.style.position = 'fixed';
-    loader.style.top = '50%';
-    loader.style.left = '50%';
-    loader.style.transform = 'translate(-50%, -50%)';
-    loader.style.width = '100px';
-    loader.style.height = '100px';
-    loader.style.borderRadius = '50%';
-    loader.style.backgroundColor = '#fff';
-    loader.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-    loader.style.zIndex = '9999';
+        if (!emailInput.value.trim()) {
+            alert('Email is required.');
+            isValid = false;
+        } else if (!isValidEmail(emailInput.value)) {
+            alert('Invalid email format.');
+            isValid = false;
+        }
 
-    const spinner = document.createElement('div');
-    spinner.style.position = 'absolute';
-    spinner.style.top = '50%';
-    spinner.style.left = '50%';
-    spinner.style.transform = 'translate(-50%, -50%)';
-    spinner.style.width = '64px';
-    spinner.style.height = '64px';
-    spinner.style.borderRadius = '50%';
-    spinner.style.borderTopColor = '#333';
-    spinner.style.borderRightColor
+        if (!phoneInput.value.trim()) {
+            alert('Phone number is required.');
+            isValid = false;
+        } else if (!isValidPhoneNumber(phoneInput.value)) {
+            alert('Invalid phone number format.');
+            isValid = false;
+        }
+
+        if (!addressInput.value.trim()) {
+            alert('Address is required.');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Email validation regex
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    // Phone number validation regex (example: +1234567890)
+    function isValidPhoneNumber(phone) {
+        const re = /^\+\d{10,15}$/;
+        return re.test(phone);
+    }
+
+    // Button Event
+    submitButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        showLoading();
+        
+        if (validateForm()) {
+            const patientData = {
+                name: nameInput.value,
+                email: emailInput.value,
+                phone: phoneInput.value,
+                address: addressInput
 
 (() => {
 "use strict";
