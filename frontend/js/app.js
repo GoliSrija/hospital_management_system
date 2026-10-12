@@ -1,82 +1,82 @@
-Certainly! Below is a basic example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a simplified example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
 
 
-// Sample HTML structure
+// Form Validation and Button Events
 document.addEventListener('DOMContentLoaded', function() {
-    // Form Validation
     const form = document.getElementById('patientForm');
     const nameInput = document.getElementById('name');
     const ageInput = document.getElementById('age');
     const emailInput = document.getElementById('email');
-    const submitButton = document.getElementById('submit');
+    const submitButton = document.getElementById('submitPatient');
 
+    // Add event listener to the form submission
     form.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent the default form submission
 
-        if (!validateName(nameInput.value)) {
-            alert('Please enter a valid name.');
+        if (!validateForm()) {
             return;
         }
 
-        if (!validateAge(ageInput.value)) {
-            alert('Please enter a valid age.');
-            return;
-        }
-
-        if (!validateEmail(emailInput.value)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-
-        // Submit the form data to the server or handle it as needed
-        alert('Form submitted successfully!');
-        submitButton.disabled = true;
-        submitButton.textContent = 'Submitting...';
-        setTimeout(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Submit';
-        }, 2000);
+        showLoadingIndicator();
+        setTimeout(function() {
+            hideLoadingIndicator();
+            alert('Patient record submitted successfully!');
+            form.reset();
+        }, 2000); // Simulate API call delay
     });
 
-    // Button Events
-    const updateButton = document.getElementById('update');
-    updateButton.addEventListener('click', function() {
-        updateContent();
-    });
+    // Validate form inputs
+    function validateForm() {
+        let isValid = true;
 
-    // Dynamic Content
-    function updateContent() {
-        const contentDiv = document.getElementById('content');
-        contentDiv.innerHTML = `
-            <h2>Updated Content</h2>
-            <p>This content was updated dynamically.</p>
-        `;
+        if (!nameInput.value.trim()) {
+            showError(nameInput, 'Name is required.');
+            isValid = false;
+        } else {
+            clearError(nameInput);
+        }
+
+        if (!ageInput.value.trim()) {
+            showError(ageInput, 'Age is required.');
+            isValid = false;
+        } else if (isNaN(ageInput.value) || parseInt(ageInput.value) < 1) {
+            showError(ageInput, 'Age must be a valid number greater than 0.');
+            isValid = false;
+        } else {
+            clearError(ageInput);
+        }
+
+        if (!emailInput.value.trim()) {
+            showError(emailInput, 'Email is required.');
+            isValid = false;
+        } else if (!isValidEmail(emailInput.value)) {
+            showError(emailInput, 'Invalid email format.');
+            isValid = false;
+        } else {
+            clearError(emailInput);
+        }
+
+        return isValid;
     }
 
-    // Loading Indicators
-    const loadingIndicator = document.getElementById('loading');
-    const loadButton = document.getElementById('load');
+    // Show error message
+    function showError(input, message) {
+        const formGroup = input.parentElement;
+        const errorElement = formGroup.querySelector('.error-message');
+        formGroup.classList.add('error');
+        errorElement.innerText = message;
+    }
 
-    loadButton.addEventListener('click', function() {
-        loadingIndicator.style.display = 'block';
-        setTimeout(() => {
-            loadingIndicator.style.display = 'none';
-            updateContent();
-        }, 1500);
-    });
-});
+    // Clear error message
+    function clearError(input) {
+        const formGroup = input.parentElement;
+        const errorElement = formGroup.querySelector('.error-message');
+        formGroup.classList.remove('error');
+        errorElement.innerText = '';
+    }
 
-// Helper Functions
-function validateName(name) {
-    return name.trim().length > 0;
-}
-
-function validateAge(age) {
-    return !isNaN(age) && parseInt(age) > 0 && parseInt(age) <= 120;
-}
-
-function validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;
+    // Validate email format
+    function isValid
 
 (() => {
 "use strict";
