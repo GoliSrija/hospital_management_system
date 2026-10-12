@@ -1,82 +1,80 @@
 Certainly! Below is a simplified example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
 
 
-// Form Validation and Button Events
 document.addEventListener('DOMContentLoaded', function() {
+    // Form Validation
     const form = document.getElementById('patientForm');
     const nameInput = document.getElementById('name');
     const ageInput = document.getElementById('age');
-    const emailInput = document.getElementById('email');
     const submitButton = document.getElementById('submitPatient');
 
-    // Add event listener to the form submission
-    form.addEventListener('submit', function(event) {
+    submitButton.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
-        if (!validateForm()) {
+        if (!validateName(nameInput)) {
+            return;
+        }
+        if (!validateAge(ageInput)) {
             return;
         }
 
+        // Simulate a server request with a loading indicator
         showLoadingIndicator();
         setTimeout(function() {
             hideLoadingIndicator();
             alert('Patient record submitted successfully!');
+            // Clear form fields after successful submission
             form.reset();
-        }, 2000); // Simulate API call delay
+        }, 2000); // Simulated delay to mimic server response time
     });
 
-    // Validate form inputs
-    function validateForm() {
-        let isValid = true;
-
-        if (!nameInput.value.trim()) {
-            showError(nameInput, 'Name is required.');
-            isValid = false;
+    function validateName(input) {
+        const name = input.value.trim();
+        if (name === '') {
+            showError(input, 'Name cannot be empty');
+            return false;
         } else {
-            clearError(nameInput);
+            clearError(input);
+            return true;
         }
-
-        if (!ageInput.value.trim()) {
-            showError(ageInput, 'Age is required.');
-            isValid = false;
-        } else if (isNaN(ageInput.value) || parseInt(ageInput.value) < 1) {
-            showError(ageInput, 'Age must be a valid number greater than 0.');
-            isValid = false;
-        } else {
-            clearError(ageInput);
-        }
-
-        if (!emailInput.value.trim()) {
-            showError(emailInput, 'Email is required.');
-            isValid = false;
-        } else if (!isValidEmail(emailInput.value)) {
-            showError(emailInput, 'Invalid email format.');
-            isValid = false;
-        } else {
-            clearError(emailInput);
-        }
-
-        return isValid;
     }
 
-    // Show error message
-    function showError(input, message) {
-        const formGroup = input.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-        formGroup.classList.add('error');
-        errorElement.innerText = message;
+    function validateAge(input) {
+        const age = input.value.trim();
+        if (age === '' || isNaN(age) || age < 1 || age > 120) {
+            showError(input, 'Age must be a number between 1 and 120');
+            return false;
+        } else {
+            clearError(input);
+            return true;
+        }
     }
 
-    // Clear error message
-    function clearError(input) {
-        const formGroup = input.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-        formGroup.classList.remove('error');
-        errorElement.innerText = '';
+    function showError(element, message) {
+        const errorElement = element.nextElementSibling;
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
     }
 
-    // Validate email format
-    function isValid
+    function clearError(element) {
+        const errorElement = element.nextElementSibling;
+        if (errorElement) {
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+        }
+    }
+
+    // Dynamic Content
+    const patientList = document.getElementById('patientList');
+    const addPatientButton = document.getElementById('addPatientButton');
+
+    addPatientButton.addEventListener('click', function() {
+        // Add a new patient item dynamically
+        const patientItem = document.createElement('div');
+        patientItem.className = 'patient-item';
+        patientItem.innerHTML = `
 
 (() => {
 "use strict";
