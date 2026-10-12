@@ -1,83 +1,82 @@
-Certainly! Below is a simplified JavaScript code snippet for a basic hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a basic example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
 
 
-document.addEventListener('DOMContentLoaded', () => {
+// Sample HTML structure
+document.addEventListener('DOMContentLoaded', function() {
+    // Form Validation
     const form = document.getElementById('patientForm');
     const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
     const emailInput = document.getElementById('email');
-    const phoneInput = document.getElementById('phone');
-    const addressInput = document.getElementById('address');
-    const submitButton = document.getElementById('submitBtn');
-    const loadingIndicator = document.getElementById('loadingIndicator');
-    const resultContainer = document.getElementById('result');
+    const submitButton = document.getElementById('submit');
 
-    // Function to show loading indicator
-    function showLoading() {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        if (!validateName(nameInput.value)) {
+            alert('Please enter a valid name.');
+            return;
+        }
+
+        if (!validateAge(ageInput.value)) {
+            alert('Please enter a valid age.');
+            return;
+        }
+
+        if (!validateEmail(emailInput.value)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        // Submit the form data to the server or handle it as needed
+        alert('Form submitted successfully!');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+        setTimeout(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit';
+        }, 2000);
+    });
+
+    // Button Events
+    const updateButton = document.getElementById('update');
+    updateButton.addEventListener('click', function() {
+        updateContent();
+    });
+
+    // Dynamic Content
+    function updateContent() {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = `
+            <h2>Updated Content</h2>
+            <p>This content was updated dynamically.</p>
+        `;
+    }
+
+    // Loading Indicators
+    const loadingIndicator = document.getElementById('loading');
+    const loadButton = document.getElementById('load');
+
+    loadButton.addEventListener('click', function() {
         loadingIndicator.style.display = 'block';
-    }
+        setTimeout(() => {
+            loadingIndicator.style.display = 'none';
+            updateContent();
+        }, 1500);
+    });
+});
 
-    // Function to hide loading indicator
-    function hideLoading() {
-        loadingIndicator.style.display = 'none';
-    }
+// Helper Functions
+function validateName(name) {
+    return name.trim().length > 0;
+}
 
-    // Form Validation
-    function validateForm() {
-        let isValid = true;
+function validateAge(age) {
+    return !isNaN(age) && parseInt(age) > 0 && parseInt(age) <= 120;
+}
 
-        if (!nameInput.value.trim()) {
-            alert('Name is required.');
-            isValid = false;
-        }
-
-        if (!emailInput.value.trim()) {
-            alert('Email is required.');
-            isValid = false;
-        } else if (!isValidEmail(emailInput.value)) {
-            alert('Invalid email format.');
-            isValid = false;
-        }
-
-        if (!phoneInput.value.trim()) {
-            alert('Phone number is required.');
-            isValid = false;
-        } else if (!isValidPhoneNumber(phoneInput.value)) {
-            alert('Invalid phone number format.');
-            isValid = false;
-        }
-
-        if (!addressInput.value.trim()) {
-            alert('Address is required.');
-            isValid = false;
-        }
-
-        return isValid;
-    }
-
-    // Email validation regex
-    function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    // Phone number validation regex (example: +1234567890)
-    function isValidPhoneNumber(phone) {
-        const re = /^\+\d{10,15}$/;
-        return re.test(phone);
-    }
-
-    // Button Event
-    submitButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-
-        showLoading();
-        
-        if (validateForm()) {
-            const patientData = {
-                name: nameInput.value,
-                email: emailInput.value,
-                phone: phoneInput.value,
-                address: addressInput
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;
 
 (() => {
 "use strict";

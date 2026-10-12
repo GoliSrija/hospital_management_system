@@ -10,42 +10,38 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar">
-            <div class="logo">Hospital Management System</div>
-            <ul class="nav-links">
-                <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                <li><a href="#/patients">Patients</a></li>
-                <li><a href="#/doctors">Doctors</a></li>
-                <li><a href="#/appointments">Appointments</a></li>
-                <li><a href="#/emr">EMR Management</a></li>
-                <li><a href="#/notifications">Notifications</a></li>
-                <li><a href="#/settings">Settings</a></li>
-            </ul>
-        </nav>
-        <div class="content">
-            <div id="sidebar">
-                <div class="sidebar-header">
-                    <h2>Navigation</h2>
-                </div>
-                <ul class="sidebar-menu">
-                    <li><a href="#/dashboard">Dashboard</a></li>
+        <header>
+            <div class="logo">HMS</div>
+            <nav>
+                <ul>
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
                     <li><a href="#/patients">Patients</a></li>
                     <li><a href="#/doctors">Doctors</a></li>
                     <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/emr">EMR Management</a></li>
-                    <li><a href="#/notifications">Notifications</a></li>
+                    <li><a href="#/medical-records">Medical Records</a></li>
+                    <li><a href="#/staff">Staff</a></li>
+                    <li><a href="#/departments">Departments</a></li>
+                    <li><a href="#/schedule">Schedule</a></li>
+                    <li><a href="#/payments">Payments</a></li>
                     <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/logout">Logout</a></li>
                 </ul>
-            </div>
-            <div id="main-content">
-                <router-view></router-view>
-            </div>
-        </div>
-        <footer>
-            <p>&copy; 2023 Hospital Management System. All rights reserved.</p>
-        </footer>
-    </div>
-    
+            </nav>
+        </header>
+        <main>
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/doctors">Doctors</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/medical-records">Medical Records</a></li>
+                    <li><a href="#/staff">Staff</a></li>
+                    <li><a href="#/departments">Departments</a></li>
+                    <li><a href="#/schedule">Schedule</a></li>
+                    <li><a href="#/payments">Payments</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/logout">Logout</a></
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
