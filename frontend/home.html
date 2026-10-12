@@ -5,35 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Management System</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar">
-            <div class="logo">HMS</div>
-            <ul class="nav-links">
-                <li><a href="#/dashboard" class="nav-item">Dashboard</a></li>
-                <li><a href="#/patients" class="nav-item">Patients</a></li>
-                <li><a href="#/appointments" class="nav-item">Appointments</a></li>
-                <li><a href="#/medicalrecords" class="nav-item">Medical Records</a></li>
-                <li><a href="#/staff" class="nav-item">Staff</a></li>
-                <li><a href="#/reports" class="nav-item">Reports</a></li>
-                <li><a href="#/settings" class="nav-item">Settings</a></li>
-                <li><a href="#/logout" class="nav-item">Logout</a></li>
-            </ul>
-        </nav>
-        <aside class="sidebar">
-            <ul class="sidebar-menu">
-                <li><a href="#/dashboard" class="sidebar-item">Dashboard</a></li>
-                <li><a href="#/patients" class="sidebar-item">Patients</a></li>
-                <li><a href="#/appointments" class="sidebar-item">Appointments</a></li>
-                <li><a href="#/medicalrecords" class="sidebar-item">Medical Records</a></li>
-                <li><a href="#/staff" class="sidebar-item">Staff</a></li>
-                <li><a href="#/reports" class="sidebar-item">Reports</a></li>
-                <li><a href="#/settings" class="sidebar-item">Settings</a></li>
-            </ul>
+        <header>
+            <nav class="navbar">
+                <div class="logo">HMS</div>
+                <ul class="nav-links">
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/records">Medical Records</a></li>
+                    <li><a href="#/staff">Staff Management</a></li>
+                    <li><a href="#/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#/dashboard">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/records">Medical Records</a></li>
+                    <li><a href="#/staff">Staff Management</a></li>
+                </ul>
+            </aside>
+            <section class="content">
+                <div class="content-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome to Hospital Management System</p>
+                </div>
+                <div class="content-section">
+                    <div class="card">
+                        <h2>New Patients Today</h2>
+                        <p>15</p>
+                    </div>
+                    <div class="card">
+                        <h2>Total Appointments</h2>
+                        <p>345</p>
+                    </div>
+                    <div class="card">
+                        <h2>Active Medical Records</h2>
+                        <p>200</p>
+                    </div>
+                    <div class="card">
+                        <h2>Total Staff</h2>
+                        <p>50</p>
+                    </
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>

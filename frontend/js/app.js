@@ -1,4 +1,4 @@
-Certainly! Below is a simplified example of JavaScript functionality for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a basic JavaScript implementation for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example assumes you have a simple HTML structure to interact with.
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -6,75 +6,74 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('patientForm');
     const nameInput = document.getElementById('name');
     const ageInput = document.getElementById('age');
-    const submitButton = document.getElementById('submitPatient');
+    const emailInput = document.getElementById('email');
 
-    submitButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        if (!validateName(nameInput)) {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        if (!validateName(nameInput.value)) {
+            alert('Please enter a valid name.');
             return;
         }
-        if (!validateAge(ageInput)) {
+
+        if (!validateAge(ageInput.value)) {
+            alert('Please enter a valid age.');
             return;
         }
 
-        // Simulate a server request with a loading indicator
-        showLoadingIndicator();
-        setTimeout(function() {
-            hideLoadingIndicator();
-            alert('Patient record submitted successfully!');
-            // Clear form fields after successful submission
-            form.reset();
-        }, 2000); // Simulated delay to mimic server response time
+        if (!validateEmail(emailInput.value)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        // If all validations pass, submit the form or handle data as needed
+        console.log('Form submitted with data:', {
+            name: nameInput.value,
+            age: ageInput.value,
+            email: emailInput.value
+        });
+
+        // Example of dynamic content update
+        displayPatientDetails(nameInput.value, ageInput.value, emailInput.value);
     });
 
-    function validateName(input) {
-        const name = input.value.trim();
-        if (name === '') {
-            showError(input, 'Name cannot be empty');
-            return false;
-        } else {
-            clearError(input);
-            return true;
-        }
+    // Button Events
+    const addPatientButton = document.getElementById('addPatientButton');
+    addPatientButton.addEventListener('click', function() {
+        form.reset();
+        nameInput.focus();
+    });
+
+    // Loading Indicator
+    const loadingIndicator = document.getElementById('loadingIndicator');
+
+    function showLoadingIndicator() {
+        loadingIndicator.style.display = 'block';
     }
 
-    function validateAge(input) {
-        const age = input.value.trim();
-        if (age === '' || isNaN(age) || age < 1 || age > 120) {
-            showError(input, 'Age must be a number between 1 and 120');
-            return false;
-        } else {
-            clearError(input);
-            return true;
-        }
+    function hideLoadingIndicator() {
+        loadingIndicator.style.display = 'none';
     }
 
-    function showError(element, message) {
-        const errorElement = element.nextElementSibling;
-        if (errorElement) {
-            errorElement.textContent = message;
-            errorElement.style.display = 'block';
-        }
-    }
-
-    function clearError(element) {
-        const errorElement = element.nextElementSibling;
-        if (errorElement) {
-            errorElement.textContent = '';
-            errorElement.style.display = 'none';
-        }
+    // Example Function to Simulate Data Fetching
+    async function fetchPatientData() {
+        showLoadingIndicator();
+        setTimeout(() => {
+            const patientData = {
+                name: 'John Doe',
+                age: 30,
+                email: 'johndoe@example.com'
+            };
+            hideLoadingIndicator();
+            displayPatientDetails(patientData.name, patientData.age, patientData.email);
+        }, 2000); // Simulating API call delay
     }
 
     // Dynamic Content
-    const patientList = document.getElementById('patientList');
-    const addPatientButton = document.getElementById('addPatientButton');
-
-    addPatientButton.addEventListener('click', function() {
-        // Add a new patient item dynamically
-        const patientItem = document.createElement('div');
-        patientItem.className = 'patient-item';
-        patientItem.innerHTML = `
+    function displayPatientDetails(name, age, email) {
+        const patientDetailsContainer = document.getElementById('patientDetails');
+        patientDetailsContainer.innerHTML = `
+            <h3>Patient Details</h3>
 
 (() => {
 "use strict";
