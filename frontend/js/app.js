@@ -1,83 +1,75 @@
-Certainly! Below is a simplified JavaScript snippet for a hospital management system. This example includes form validation, button events, dynamic content updates, and loading indicators.
+Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content updates, and loading indicators. This example assumes you have basic HTML structures in place.
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('patientForm');
-    const patientNameInput = document.getElementById('patientName');
-    const patientAgeInput = document.getElementById('patientAge');
-    const patientEmailInput = document.getElementById('patientEmail');
-    const submitButton = document.getElementById('submitButton');
-    const patientList = document.getElementById('patientList');
-    const loader = document.getElementById('loader');
+// Function to validate the form
+function validateForm() {
+    const name = document.getElementById('patientName').value;
+    const age = document.getElementById('patientAge').value;
+    const email = document.getElementById('patientEmail').value;
+    const symptoms = document.getElementById('symptoms').value;
 
-    // Function to handle form submission
-    function handleSubmit(event) {
-        event.preventDefault();
+    let isValid = true;
 
-        // Validate form fields
-        if (!validateForm()) {
-            return;
-        }
+    // Validate name
+    if (name === '') {
+        alert('Patient Name is required');
+        isValid = false;
+    }
 
-        // Show loading indicator
-        loader.style.display = 'block';
+    // Validate age
+    if (age === '' || isNaN(age) || parseInt(age) < 1) {
+        alert('Patient Age must be a valid number greater than 0');
+        isValid = false;
+    }
 
-        // Simulate async operation
-        setTimeout(() => {
-            // Add new patient to the list
-            const patientItem = document.createElement('li');
-            patientItem.textContent = `${patientNameInput.value} (${patientAgeInput.value} years old) - ${patientEmailInput.value}`;
-            patientList.appendChild(patientItem);
+    // Validate email
+    if (email === '') {
+        alert('Patient Email is required');
+        isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+        alert('Invalid email format');
+        isValid = false;
+    }
 
-            // Clear form fields
-            patientNameInput.value = '';
-            patientAgeInput.value = '';
-            patientEmailInput.value = '';
+    // Validate symptoms
+    if (symptoms === '') {
+        alert('Symptoms description is required');
+        isValid = false;
+    }
 
+    return isValid;
+}
+
+// Button event to submit the form
+document.getElementById('submitPatientForm').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    if (validateForm()) {
+        // Simulate loading indicator
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        loadingIndicator.style.display = 'block';
+
+        // Simulate data sending to server
+        setTimeout(function() {
             // Hide loading indicator
-            loader.style.display = 'none';
-        }, 1000); // Simulating delay
+            loadingIndicator.style.display = 'none';
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+        }, 2000); // Simulating server response delay
+
+        // Clear form fields
+        document.getElementById('patientName').value = '';
+        document.getElementById('patientAge').value = '';
+        document.getElementById('patientEmail').value = '';
+        document.getElementById('symptoms').value = '';
     }
-
-    // Function to validate form fields
-    function validateForm() {
-        const name = patientNameInput.value.trim();
-        const age = parseInt(patientAgeInput.value, 10);
-        const email = patientEmailInput.value.trim();
-
-        if (name === '') {
-            alert('Patient name is required.');
-            return false;
-        }
-
-        if (isNaN(age) || age <= 0) {
-            alert('Patient age must be a positive number.');
-            return false;
-        }
-
-        if (!email.includes('@') || !email.includes('.')) {
-            alert('Invalid email format.');
-            return false;
-        }
-
-        return true;
-    }
-
-    // Event listener for form submission
-    submitButton.addEventListener('click', handleSubmit);
-
-    // Optional: Add key press event to trigger form submission on Enter key
-    form.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            handleSubmit(event);
-        }
-    });
 });
 
-
-### HTML Structure
-
-To use this JavaScript, you need the following HTML
+// Button event to clear form
+document.getElementById('clearForm').addEventListener('click', function() {
+    document.getElementById('patientName').value = '';
+    document.getElementById('patientAge').value = '';
+    document.getElementById('patientEmail').
 
 (() => {
 "use strict";
