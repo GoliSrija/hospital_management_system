@@ -1,4 +1,4 @@
-/* Reset some default browser styles */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,12 +12,12 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Navbar Styles */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 20px 50px;
     background-color: #333;
     color: #fff;
 }
@@ -25,7 +25,7 @@ body {
 .navbar a {
     color: #fff;
     text-decoration: none;
-    margin-right: 1rem;
+    margin-left: 20px;
 }
 
 .navbar a:hover {
@@ -38,7 +38,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('path/to/hero-image.jpg');
+    background-image: url('path/to/your/image.jpg');
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -48,60 +48,59 @@ body {
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+.hero-content p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Card Styles */
+/* Cards */
 .card {
-    display: inline-block;
-    margin: 1rem;
-    padding: 1rem;
     background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
+    overflow: hidden;
+    margin: 20px;
+    width: calc(33.33% - 40px);
 }
 
 .card img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
+.card .card-body {
+    padding: 20px;
+}
+
 .card .card-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
 .card .card-text {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: #777;
 }
 
-/* Form Styles */
+/* Forms */
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #
 :root{--primary:#3157d5;--primary-dark:#2443ad;--bg:#f4f7fc;--text:#1c2740;--muted:#748099;--border:#e1e7f0}
 *{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
 header{padding:18px 24px;background:#fff;border-bottom:1px solid var(--border)}main,.container,.dashboard,.content{max-width:1240px;margin:28px auto;padding:24px}

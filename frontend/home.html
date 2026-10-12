@@ -10,39 +10,40 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar">
-            <div class="brand-title">Hospital Management System</div>
-            <div class="toggle-button" onclick="toggleSidebar()">
-                <span></span>
-                <span></span>
-                <span></span>
+        <header>
+            <nav class="navbar">
+                <a href="#/dashboard" class="logo">Hospital MS</a>
+                <ul class="nav-links">
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/records">Medical Records</a></li>
+                    <li><a href="#/billing">Billing</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#/patients">Patients</a></li>
+                    <li><a href="#/appointments">Appointments</a></li>
+                    <li><a href="#/records">Medical Records</a></li>
+                    <li><a href="#/billing">Billing</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                </ul>
             </div>
-            <ul class="nav-links">
-                <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                <li><a href="#/patients">Patients</a></li>
-                <li><a href="#/doctors">Doctors</a></li>
-                <li><a href="#/appointments">Appointments</a></li>
-                <li><a href="#/medicalRecords">Medical Records</a></li>
-                <li><a href="#/labResults">Lab Results</a></li>
-                <li><a href="#/communicationTools">Communication Tools</a></li>
-                <li><a href="#/settings">Settings</a></li>
-                <li><a href="#" onclick="logout()">Logout</a></li>
-            </ul>
-        </nav>
-        <div id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <div class="brand-title">Hospital Management System</div>
-                <div class="close-sidebar" onclick="toggleSidebar()">&times;</div>
+            <div class="content">
+                <router-view></router-view>
             </div>
-            <ul class="sidebar-links">
-                <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                <li><a href="#/patients">Patients</a></li>
-                <li><a href="#/doctors">Doctors</a></li>
-                <li><a href="#/appointments">Appointments</a></li>
-                <li><a href="#/medicalRecords">Medical Records</a></li>
-                <li><a href="#/labResults">Lab Results</a></li>
-                <li><a href="#/communicationTools">Communication Tools</a></li>
-                <li><a href="#/
+        </main>
+        <footer>
+            <p>&copy; 2023 Hospital Management System</p>
+        </footer>
+    </div>
+    
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
