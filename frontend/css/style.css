@@ -12,48 +12,46 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Layout */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    color: #0056b3;
 }
 
 /* Navbar */
 .navbar {
-    background: #333;
-    color: #fff;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar .logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-}
-
-.navbar .links {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .links a {
-    color: #fff;
-    margin-left: 20px;
-    text-decoration: none;
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
-.navbar .links a:hover {
-    color: #ddd;
+.nav-item {
+    margin-left: 1rem;
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.nav-link.active {
+    color: #007BFF;
 }
 
 /* Hero Section */
 .hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
+    background: url('path/to/hero-image.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -63,43 +61,40 @@ body {
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 /* Cards */
 .card {
-    background: #fff;
+    background-color: #fff;
     border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 1rem;
+    width: calc(100% - 2rem);
 }
 
-.card .card-header {
-    padding: 20px;
-    background: #333;
+.card-header {
+    background-color: #007BFF;
     color: #fff;
+    padding: 1rem;
     text-align: center;
 }
 
-.card .card-body {
-    padding: 20px;
+.card-body {
+    padding: 1rem;
 }
 
-.card .card-footer {
-    padding: 20px;
-    border-top: 1px solid #ddd;
-}
-
-/* Forms */
-.form-group {
-    margin-bottom:
+.card-footer {
+    background-color: #f9f9f9;
+    padding: 1
 :root{--primary:#3157d5;--primary-dark:#2443ad;--bg:#f4f7fc;--text:#1c2740;--muted:#748099;--border:#e1e7f0}
 *{box-sizing:border-box}body{margin:0;color:var(--text);background:var(--bg);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
 header{padding:18px 24px;background:#fff;border-bottom:1px solid var(--border)}main,.container,.dashboard,.content{max-width:1240px;margin:28px auto;padding:24px}

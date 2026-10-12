@@ -12,49 +12,39 @@
     <div class="app-container">
         <header>
             <div class="logo">Hospital Management System</div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#/dashboard" class="active">Dashboard</a></li>
-                    <li><a href="#/patients">Patients</a></li>
-                    <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/records">Medical Records</a></li>
-                    <li><a href="#/billing">Billing & Payment</a></li>
-                    <li><a href="#/logout">Logout</a></li>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#/dashboard" class="nav-item active">Dashboard</a></li>
+                    <li><a href="#/patients" class="nav-item">Patients</a></li>
+                    <li><a href="#/appointments" class="nav-item">Appointments</a></li>
+                    <li><a href="#/medical-records" class="nav-item">Medical Records</a></li>
+                    <li><a href="#/staff" class="nav-item">Staff</a></li>
+                    <li><a href="#/communication-logs" class="nav-item">Communication Logs</a></li>
+                    <li><a href="#/logout" class="nav-item">Logout</a></li>
                 </ul>
             </nav>
         </header>
-        <div class="main-content">
-            <div id="content"></div>
-        </div>
-        <footer>
-            <p>&copy; 2023 Hospital Management System</p>
-        </footer>
-    </div>
-    
+
+        <main>
+            <div id="sidebar" class="sidebar">
+                <div class="user-profile">
+                    <img src="profile.jpg" alt="User Profile">
+                    <span class="username">John Doe</span>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#/dashboard" class="sidebar-item active">Dashboard</a></li>
+                    <li><a href="#/patients" class="sidebar-item">Patients</a></li>
+                    <li><a href="#/appointments" class="sidebar-item">Appointments</a></li>
+                    <li><a href="#/medical-records" class="sidebar-item">Medical Records</a></li>
+                    <li><a href="#/staff" class="sidebar-item">Staff</a></li>
+                    <li><a href="#/communication-logs" class="sidebar-item">Communication Logs</a></li>
+                    <li><a href="#/logout" class="sidebar-item">Logout</a></li>
+                </ul>
+            </div>
+
+            <div id
 
 <script src="js/config.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>
-
-<!-- Patients Page -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Management System - Patients</title>
-    
-</head>
-<body>
-    <div class="app-container">
-        <header>
-            <div class="logo">Hospital Management System</div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#/dashboard">Dashboard</a></li>
-                    <li><a href="#/patients" class="active">Patients</a></li>
-                    <li><a href="#/appointments">Appointments</a></li>
-                    <li><a href="#/records">Medical Records</a></li>
-                    <li><a href="#/billing">Billing & Payment</a></li>
-                    <li><a href="#/logout">Logout</a></li>

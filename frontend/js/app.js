@@ -1,75 +1,63 @@
-Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content updates, and loading indicators. This example assumes you have basic HTML structures in place.
+Certainly! Below is a simplified JavaScript snippet for a hospital management system that includes form validation, button events, dynamic content, and loading indicators. This example focuses on a patient registration form.
 
 
-// Function to validate the form
-function validateForm() {
+// Function to handle form submission
+function handleSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get form values
     const name = document.getElementById('patientName').value;
-    const age = document.getElementById('patientAge').value;
-    const email = document.getElementById('patientEmail').value;
-    const symptoms = document.getElementById('symptoms').value;
+    const dob = document.getElementById('dob').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
 
-    let isValid = true;
-
-    // Validate name
-    if (name === '') {
-        alert('Patient Name is required');
-        isValid = false;
+    // Form validation
+    if (!name || !dob || !email || !phone) {
+        alert('All fields are required!');
+        return;
     }
 
-    // Validate age
-    if (age === '' || isNaN(age) || parseInt(age) < 1) {
-        alert('Patient Age must be a valid number greater than 0');
-        isValid = false;
+    // Check if email is valid
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Invalid email address!');
+        return;
     }
 
-    // Validate email
-    if (email === '') {
-        alert('Patient Email is required');
-        isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-        alert('Invalid email format');
-        isValid = false;
-    }
+    // Simulate API call with loading indicator
+    showLoadingIndicator();
 
-    // Validate symptoms
-    if (symptoms === '') {
-        alert('Symptoms description is required');
-        isValid = false;
-    }
-
-    return isValid;
+    // Mocked API call
+    setTimeout(() => {
+        hideLoadingIndicator();
+        alert('Patient registered successfully!');
+    }, 2000); // Simulating API response delay
 }
 
-// Button event to submit the form
-document.getElementById('submitPatientForm').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default form submission
+// Function to show loading indicator
+function showLoadingIndicator() {
+    const loader = document.createElement('div');
+    loader.style.position = 'fixed';
+    loader.style.top = '50%';
+    loader.style.left = '50%';
+    loader.style.transform = 'translate(-50%, -50%)';
+    loader.style.width = '100px';
+    loader.style.height = '100px';
+    loader.style.borderRadius = '50%';
+    loader.style.backgroundColor = '#fff';
+    loader.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+    loader.style.zIndex = '9999';
 
-    if (validateForm()) {
-        // Simulate loading indicator
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        loadingIndicator.style.display = 'block';
-
-        // Simulate data sending to server
-        setTimeout(function() {
-            // Hide loading indicator
-            loadingIndicator.style.display = 'none';
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-        }, 2000); // Simulating server response delay
-
-        // Clear form fields
-        document.getElementById('patientName').value = '';
-        document.getElementById('patientAge').value = '';
-        document.getElementById('patientEmail').value = '';
-        document.getElementById('symptoms').value = '';
-    }
-});
-
-// Button event to clear form
-document.getElementById('clearForm').addEventListener('click', function() {
-    document.getElementById('patientName').value = '';
-    document.getElementById('patientAge').value = '';
-    document.getElementById('patientEmail').
+    const spinner = document.createElement('div');
+    spinner.style.position = 'absolute';
+    spinner.style.top = '50%';
+    spinner.style.left = '50%';
+    spinner.style.transform = 'translate(-50%, -50%)';
+    spinner.style.width = '64px';
+    spinner.style.height = '64px';
+    spinner.style.borderRadius = '50%';
+    spinner.style.borderTopColor = '#333';
+    spinner.style.borderRightColor
 
 (() => {
 "use strict";
